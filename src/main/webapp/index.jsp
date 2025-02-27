@@ -31,6 +31,29 @@
             </div>
         </section>
 
+        <!-- Features Section -->
+        <section class=" container">
+            <h2 class="headings" >Our <span>Services</span></h2>
+            <h2 class="headings-mini">Choose the perfect vehicle for your ride.</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-car"></i>
+                    <h3>Wide Range of Vehicles</h3>
+                    <p>Choose from a variety of vehicles to suit your needs.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Availability</h3>
+                    <p>We are always here to serve you, anytime, anywhere.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safe & Secure</h3>
+                    <p>Your safety is our top priority.</p>
+                </div>
+            </div>
+        </section>
+
 
 
         <!-- Include Footer -->

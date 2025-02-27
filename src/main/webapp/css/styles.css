@@ -130,3 +130,60 @@ a {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* Call to Action Section */
+.cta {
+    padding: 60px 20px;
+    background-color: var(--primary-color);
+    text-align: center;
+    color: var(--white);
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta .btn {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.cta .btn:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 20px;
+    background-color: var(--white);
+}
+
+.feature {
+    text-align: center;
+    max-width: 300px;
+}
+
+.feature i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.feature p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
