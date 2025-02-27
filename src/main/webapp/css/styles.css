@@ -194,7 +194,6 @@ a {
 }
 
 
-/* Vehicle Cards */
 .vehicle-card {
     background: #fff;
     border-radius: 12px;
@@ -209,7 +208,6 @@ a {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Vehicle Image */
 .vehicle-image img {
     width: 100%;
     height: 200px;
@@ -217,7 +215,6 @@ a {
     border-bottom: 3px solid #ff6600;
 }
 
-/* Vehicle Details */
 .vehicle-details {
     padding: 20px;
 }
@@ -228,7 +225,6 @@ a {
     margin-bottom: 10px;
 }
 
-/* Features List */
 .vehicle-details ul {
     list-style: none;
     padding: 0;
@@ -249,13 +245,11 @@ a {
     font-size: 1.2rem;
 }
 
-/* Swiper Navigation */
 .swiper1-button-next, 
 .swiper1-button-prev {
     color: #ff6600 !important;
 }
 
-/* Swiper Pagination */
 .swiper1-pagination-bullet {
     background: #ff6600 !important;
     width: 12px;
@@ -266,4 +260,90 @@ a {
 .swiper1-pagination-bullet-active {
     opacity: 1;
     transform: scale(1.2);
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 50px 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.swiper {
+    padding: 20px 0;
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: auto;
+    text-align: left;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.testimonial-content p {
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial-stars {
+    font-size: 1.2rem;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.testimonial-content h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #0077b6;
+    display: flex;
+    align-items: right;
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+    background: #0077b6 !important;
+    width: 12px;
+    height: 12px;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #0077b6 !important;
 }
