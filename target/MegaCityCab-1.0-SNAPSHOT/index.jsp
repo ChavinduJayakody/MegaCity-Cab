@@ -54,6 +54,87 @@
             </div>
         </section>
 
+        <!-- Call to Action Section -->
+        <section class="cta">
+            <div class="cta-content">
+                <h2>Ready to Ride?</h2>
+                <p>Book your ride now and experience the best in-city transportation service.</p>
+                <a href="#" class="btn">Reserve Your Cab</a>
+            </div>
+        </section>
+
+
+
+        <!-- Vehicle Showcase Section -->
+        <section class="vehicle-showcase">
+            <div class="container">
+                <h2 class="headings">Our <span>Fleet</span></h2>
+                <h2 class="headings-mini">Choose the perfect vehicle for your ride.</h2>
+                <!-- Swiper Container -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+
+                        <!-- Vehicle 1: Standard Sedan -->
+                        <div class="swiper-slide vehicle-card">
+                            <div class="vehicle-image">
+                                <img src="images/slide1.jpg" alt="Standard Sedan">
+                            </div>
+                            <div class="vehicle-details">
+                                <h3>Standard Sedan</h3>
+                                <ul>
+                                    <li><i class="fas fa-users"></i> Up to 4 passengers</li>
+                                    <li><i class="fas fa-suitcase"></i> 2 large suitcases</li>
+                                    <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                                    <li><i class="fas fa-snowflake"></i> Air Conditioning</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle 2: Luxury SUV -->
+                        <div class="swiper-slide vehicle-card">
+                            <div class="vehicle-image">
+                                <img src="images/slide2.jpg" alt="Luxury SUV">
+                            </div>
+                            <div class="vehicle-details">
+                                <h3>Luxury SUV</h3>
+                                <ul>
+                                    <li><i class="fas fa-users"></i> Up to 6 passengers</li>
+                                    <li><i class="fas fa-suitcase"></i> 4 large suitcases</li>
+                                    <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                                    <li><i class="fas fa-tv"></i> Entertainment System</li>
+                                    <li><i class="fas fa-snowflake"></i> Air Conditioning</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle 3: Minivan -->
+                        <div class="swiper-slide vehicle-card">
+                            <div class="vehicle-image">
+                                <img src="images/slide3.jpg" alt="Minivan">
+                            </div>
+                            <div class="vehicle-details">
+                                <h3>Minivan</h3>
+                                <ul>
+                                    <li><i class="fas fa-users"></i> Up to 8 passengers</li>
+                                    <li><i class="fas fa-suitcase"></i> 6 large suitcases</li>
+                                    <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                                    <li><i class="fas fa-snowflake"></i> Air Conditioning</li>
+                                    <li><i class="fas fa-wheelchair"></i> Wheelchair Accessible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
 
 
         <!-- Include Footer -->

@@ -67,7 +67,7 @@
 
         </div>
         <div class="footer-copyright">
-            <p>&copy; 2025 Innovative Software Solutions. All Right Reserved</p>
+            <p>&copy; 2025 MegaCityCab. All Right Reserved</p>
         </div>
     </div>
 </footer>
