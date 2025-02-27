@@ -1,0 +1,21 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 26, 2025, 7:59:02 PM
+    Author     : Chavindu Jayakody
+*/
+/* colors.css */
+
+:root {
+    --primary-color: #2095ae;
+    --secondary-color: #50E3C2;
+    --accent-color: #FF6F61;
+    --background-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --text-color: #2C3E50;
+    --footer-bg: #34495E;
+    --light-bg: #F5F7FA;
+    --white: #F2F2F2;
+    --black: #000000;      
+}

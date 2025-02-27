@@ -1,17 +1,12 @@
-<%-- 
-    Document   : header
-    Created on : Feb 26, 2025, 7:49:43 PM
-    Author     : Chavindu Jayakody
---%>
+<header id="header" class="header">
+    <a class="navbar-logo" href="index.jsp">Mega City <span class="theme-accent-color">Cab</span></a>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+    <nav class="navbar">
+        <a id="homebutton" href="index.jsp">Home</a>
+        <a id="gallerybutton" href="#">Gallery</a>
+        <a href="#">Reservation</a>
+        <a href="#">About</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+</header>

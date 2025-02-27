@@ -1,0 +1,142 @@
+/* Footer */
+
+#footer {
+  padding: 3rem 0;
+  background: var(--primary-color);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--light-gray-color);
+}
+
+.ft-content {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  color: var(--white-color);
+}
+
+.client-review {
+  color: var(--white-color);
+}
+
+.footer-content .heading-normal-txt {
+  color: var(--white-color);
+}
+
+.icon i {
+  padding: 1rem;
+  font-size: 2.5rem;
+  background: var(--primary-color);
+}
+
+.content {
+  padding: 1rem;
+}
+
+.footer-wraper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1rem 0;
+  grid-gap: 2rem;
+  color: var(--white-color);
+  margin: 4rem 0;
+}
+
+.about img {
+  width: 75%;
+  object-fit: cover;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons i {
+  background: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.social-icons .fa-facebook:hover {
+  transform: scale(1.1);
+}
+
+.social-icons .fa-twitter:hover {
+  transform: scale(1.1);
+}
+
+.social-icons .fa-instagram:hover {
+  transform: scale(1.1);
+}
+
+.social-icons .fa-pinterest:hover {
+  transform: scale(1.1);
+}
+
+.about .lead {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.links ul {
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.links ul li {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.links ul li a {
+  color: var(--white-color);
+}
+
+.links ul li a:hover {
+  color: var(--primary-color);
+}
+
+.others ul {
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.others ul li {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.others ul li a {
+  color: var(--white-color);
+}
+
+.others ul li a:hover {
+  color: var(--primary-color);
+}
+
+.footer-topic {
+  border-bottom: 1px solid var(--light-gray-color);
+  border-width: auto;
+}
+
+.footer-copyright {
+  border-top: 1px solid var(--light-gray-color);
+}
+
+.footer-copyright p {
+  text-align: center;
+  padding: 1rem 0;
+  color: var(--white-color);
+}

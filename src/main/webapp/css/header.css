@@ -1,0 +1,126 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 2vh 25vh;
+  background-image: -webkit-linear-gradient(left, #000 5%, rgba(0, 0, 0, 0.063));
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  z-index: 100;
+  transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.header.scrolled{
+    background: rgba(0,0,0,0.8);
+    padding: 2vh 25vh;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+  transition: background 0.5s ease-in-out;
+  animation: slideDown 0.5s ease forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+
+
+/* ------------------- Navigation Bar ------------------- */
+
+.navbar-logo {
+  font-family: "Bree Serif", "Open Sans", Arial, sans-serif;
+  text-transform: none;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 5px;
+  font-size: 22px;
+  font-weight: bold;
+  user-select: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.navbar-logo:hover {
+  color: var(--primary-color);
+}
+
+.theme-accent-color {
+  color: var(--accent-color) !important;
+}
+
+.navbar {
+  display: flex;
+}
+
+.navbar a {
+  position: relative;
+  font-family: "Bree Serif", "Open Sans", Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #fff;
+  font-weight: 550;
+  text-decoration: none;
+  margin-left: 40px;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.navbar a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: 0.3s;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+  background-color: var(--main-theme-color);
+}
+
+.navbar a.active,
+.icons a.active {
+  color: var(--main-theme-color);
+}
+
+.navbar a.active::before {
+  width: 100%;
+  background-color: var(--main-theme-color);
+}
+
+.active {
+  display: block;
+}
