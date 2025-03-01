@@ -194,68 +194,67 @@
         <!--        testimonial section-->
         <section class="testimonials">
             <div class="container">
-                <h2 class="headings">Our <span>Clients</span></h2>
-                <h2 class="headings-mini">What Our Customers Say</h2>
+                <div class="testimonials-frame">
+                    <h2 class="headings">Our <span>Clients</span></h2>
+                    <h2 class="headings-mini">What Our Customers Say</h2>
 
-                <!-- Swiper Container for Testimonials -->
-                <div class="swiper testimonialSwiper">
-                    <div class="swiper-wrapper">
-                        <!-- Testimonial 1 -->
-                        <div class="swiper-slide testimonial-card">
-                            <div class="testimonial-content">
-                                <p>"Great service! The driver was on time and very polite."</p>
-                                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                <h4>- Kasun Perera</h4>
+                        <div class="swiper testimonialSwiper">
+                            <div class="swiper-wrapper">
+                                <!-- Testimonial 1 -->
+                                <div class="swiper-slide testimonial-card">
+                                    <div class="testimonial-content">
+                                        <p>"Great service! The driver was on time and very polite."</p>
+                                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                        <h4>- Kasun Perera</h4>
+                                    </div>
+                                    <div class="testimonial-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Kasun+Perera&background=ff6600&color=fff" alt="Kasun Perera">
+                                    </div>
+                                </div>
+
+                            <!-- Testimonial 2 -->
+                            <div class="swiper-slide testimonial-card">
+                                <div class="testimonial-content">
+                                    <p>"Very comfortable ride. Will definitely use again!"</p>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐☆</div>
+                                    <h4>- Nimali Fernando</h4>
+                                </div>
+                                <div class="testimonial-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Nimali+Fernando&background=ff6600&color=fff" alt="Nimali Fernando">
+                                </div>
                             </div>
-                            <div class="testimonial-avatar">
-                                <img src="https://ui-avatars.com/api/?name=Kasun+Perera&background=ff6600&color=fff" alt="Kasun Perera">
+
+                            <!-- Testimonial 3 -->
+                            <div class="swiper-slide testimonial-card">
+                                <div class="testimonial-content">
+                                    <p>"Affordable and reliable. Highly recommend!"</p>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <h4>- Tharindu Silva</h4>
+                                </div>
+                                <div class="testimonial-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Tharindu+Silva&background=ff6600&color=fff" alt="Tharindu Silva">
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 3 -->
+                            <div class="swiper-slide testimonial-card">
+                                <div class="testimonial-content">
+                                    <p>"Affordable and reliable. Highly recommend!"</p>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <h4>- Janith Ranawaka</h4>
+                                </div>
+                                <div class="testimonial-avatar">
+                                    <img src="https://ui-avatars.com/api/?name=Janith+Ranawaka&background=ff6600&color=fff" alt="Tharindu Silva">
+                                </div>
                             </div>
                         </div>
-
-                        <!-- Testimonial 2 -->
-                        <div class="swiper-slide testimonial-card">
-                            <div class="testimonial-content">
-                                <p>"Very comfortable ride. Will definitely use again!"</p>
-                                <div class="testimonial-stars">⭐⭐⭐⭐☆</div>
-                                <h4>- Nimali Fernando</h4>
-                            </div>
-                            <div class="testimonial-avatar">
-                                <img src="https://ui-avatars.com/api/?name=Nimali+Fernando&background=ff6600&color=fff" alt="Nimali Fernando">
-                            </div>
                         </div>
-
-                        <!-- Testimonial 3 -->
-                        <div class="swiper-slide testimonial-card">
-                            <div class="testimonial-content">
-                                <p>"Affordable and reliable. Highly recommend!"</p>
-                                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                <h4>- Tharindu Silva</h4>
-                            </div>
-                            <div class="testimonial-avatar">
-                                <img src="https://ui-avatars.com/api/?name=Tharindu+Silva&background=ff6600&color=fff" alt="Tharindu Silva">
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 3 -->
-                        <div class="swiper-slide testimonial-card">
-                            <div class="testimonial-content">
-                                <p>"Affordable and reliable. Highly recommend!"</p>
-                                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                <h4>- Tharindu Silva</h4>
-                            </div>
-                            <div class="testimonial-avatar">
-                                <img src="https://ui-avatars.com/api/?name=Tharindu+Silva&background=ff6600&color=fff" alt="Tharindu Silva">
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
         </section>
 
 
-
-
+        <!--Scroll to top button-->
+        <%@include file="components/scrollButton.jsp" %>
 
         <!-- Include Footer -->
         <%@ include file="components/footer.jsp" %>
@@ -265,8 +264,5 @@
         <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="js/script.js"></script>
-        <script>
-            
-        </script>
     </body>
 </html>

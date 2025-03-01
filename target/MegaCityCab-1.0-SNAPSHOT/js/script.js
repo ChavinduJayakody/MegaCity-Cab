@@ -1,3 +1,4 @@
+ 
  document.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
     if (window.scrollY > 50) { // Adjust the scroll threshold as needed
@@ -99,4 +100,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+//scroll to top
+        // Scroll to Top Button
+        const scrollToTopButton = document.getElementById('scroll-to-top');
+
+        // Show the button when the user scrolls down 200px
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        };
+
+        // Scroll to the top when the button is clicked
+        scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
         

@@ -2,6 +2,7 @@
 @import url('colors.css');
 @import url('header.css');
 @import url('footer.css');
+@import url('scrollButton.css');
 
 * {
   padding: 0;
@@ -269,6 +270,13 @@ a {
     text-align: center;
 }
 
+.testimonials-frame{
+    border: 2px solid rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(32, 149, 174, 0.3);
+    padding:50px;
+}
+
 .swiper {
     padding: 20px 0;
 }
@@ -353,7 +361,8 @@ a {
     padding: 50px 20px;
     text-align: center;
     background: url('../images/faq.jpg') no-repeat center center/cover;
-        overflow-y: hidden;
+    background-attachment: fixed;
+    overflow-y: hidden;
 
 }
 .faq-frame {
