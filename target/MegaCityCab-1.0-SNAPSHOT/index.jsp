@@ -135,6 +135,62 @@
             </div>
         </section>
 
+        <!--Frequently asked questions-->
+        <section class="faq ">
+            <div class="container">
+                <div class="faq-frame">
+                    <div class="faq-section">
+                        <h2 class="headings">  Need <span> Help?</span></h2>
+                        <h2 class="headings-mini">Everything You Need to Know</h2>
+                        <div class="faq-container">
+                            <!-- FAQ Item 1 -->
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>How do I book a ride?</h3>
+                                    <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>You can book a ride through our website or mobile app by entering your pickup and drop-off locations.</p>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 2 -->
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>What are your cab fares?</h3>
+                                    <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Our fares depend on distance, time, and traffic conditions. Use our fare estimator for an accurate price.</p>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 3 -->
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Are your drivers licensed?</h3>
+                                    <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Yes, all our drivers are professionally licensed and background-checked for your safety.</p>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 4 -->
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Do you offer airport transfers?</h3>
+                                    <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Yes, we provide airport pickups and drop-offs. You can schedule a ride in advance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!--        testimonial section-->
         <section class="testimonials">
             <div class="container">
@@ -199,11 +255,14 @@
 
 
 
+
+
         <!-- Include Footer -->
         <%@ include file="components/footer.jsp" %>
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="js/script.js"></script>
         <script>

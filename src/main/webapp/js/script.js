@@ -72,4 +72,31 @@
             }
         }
     });
+    
+//    faq 
+document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+        const question = item.querySelector(".faq-question");
+        const icon = item.querySelector(".faq-toggle i");
+
+        question.addEventListener("click", () => {
+            faqItems.forEach(el => {
+                if (el !== item) {
+                    el.classList.remove("active");
+                    el.querySelector(".faq-toggle i").classList.replace("fa-minus", "fa-plus");
+                }
+            });
+
+            item.classList.toggle("active");
+
+            if (item.classList.contains("active")) {
+                icon.classList.replace("fa-plus", "fa-minus");
+            } else {
+                icon.classList.replace("fa-minus", "fa-plus");
+            }
+        });
+    });
+});
         

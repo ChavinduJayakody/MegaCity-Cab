@@ -347,3 +347,100 @@ a {
 .swiper-button-next, .swiper-button-prev {
     color: #0077b6 !important;
 }
+
+/* FAQ Section */
+.faq{
+    padding: 50px 20px;
+    text-align: center;
+    background: url('../images/faq.jpg') no-repeat center center/cover;
+        overflow-y: hidden;
+
+}
+.faq-frame {
+    backdrop-filter: blur(15px) saturate(100%);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+.faq-section {
+    position: relative;
+    height: 20%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.faq-section::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.faq-item:hover {
+    transform: scale(1.02);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-color);
+    padding: 10px;
+}
+
+.faq-toggle {
+    font-size: 18px;
+    color: var(--accent-color);
+    transition: transform 0.3s ease-in-out, color 0.3s;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    font-size: 14px;
+    color: #2c3e50;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+        border-radius: 10px;
+
+    
+}
+
+.faq-item.active .faq-answer {
+    max-height: 150px;
+    opacity: 1;
+    padding-top: 10px;
+    border-radius: 10px;
+
+    
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(180deg);
+    color: #e74c3c;
+}
