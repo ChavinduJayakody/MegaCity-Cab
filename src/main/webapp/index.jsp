@@ -212,42 +212,42 @@
                                     </div>
                                 </div>
 
-                            <!-- Testimonial 2 -->
-                            <div class="swiper-slide testimonial-card">
-                                <div class="testimonial-content">
-                                    <p>"Very comfortable ride. Will definitely use again!"</p>
-                                    <div class="testimonial-stars">⭐⭐⭐⭐☆</div>
-                                    <h4>- Nimali Fernando</h4>
+                                <!-- Testimonial 2 -->
+                                <div class="swiper-slide testimonial-card">
+                                    <div class="testimonial-content">
+                                        <p>"Very comfortable ride. Will definitely use again!"</p>
+                                        <div class="testimonial-stars">⭐⭐⭐⭐☆</div>
+                                        <h4>- Nimali Fernando</h4>
+                                    </div>
+                                    <div class="testimonial-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Nimali+Fernando&background=ff6600&color=fff" alt="Nimali Fernando">
+                                    </div>
                                 </div>
-                                <div class="testimonial-avatar">
-                                    <img src="https://ui-avatars.com/api/?name=Nimali+Fernando&background=ff6600&color=fff" alt="Nimali Fernando">
-                                </div>
-                            </div>
 
-                            <!-- Testimonial 3 -->
-                            <div class="swiper-slide testimonial-card">
-                                <div class="testimonial-content">
-                                    <p>"Affordable and reliable. Highly recommend!"</p>
-                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                    <h4>- Tharindu Silva</h4>
+                                <!-- Testimonial 3 -->
+                                <div class="swiper-slide testimonial-card">
+                                    <div class="testimonial-content">
+                                        <p>"Affordable and reliable. Highly recommend!"</p>
+                                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                        <h4>- Tharindu Silva</h4>
+                                    </div>
+                                    <div class="testimonial-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Tharindu+Silva&background=ff6600&color=fff" alt="Tharindu Silva">
+                                    </div>
                                 </div>
-                                <div class="testimonial-avatar">
-                                    <img src="https://ui-avatars.com/api/?name=Tharindu+Silva&background=ff6600&color=fff" alt="Tharindu Silva">
-                                </div>
-                            </div>
 
-                            <!-- Testimonial 3 -->
-                            <div class="swiper-slide testimonial-card">
-                                <div class="testimonial-content">
-                                    <p>"Affordable and reliable. Highly recommend!"</p>
-                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                    <h4>- Janith Ranawaka</h4>
-                                </div>
-                                <div class="testimonial-avatar">
-                                    <img src="https://ui-avatars.com/api/?name=Janith+Ranawaka&background=ff6600&color=fff" alt="Tharindu Silva">
+                                <!-- Testimonial 3 -->
+                                <div class="swiper-slide testimonial-card">
+                                    <div class="testimonial-content">
+                                        <p>"Affordable and reliable. Highly recommend!"</p>
+                                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                        <h4>- Janith Ranawaka</h4>
+                                    </div>
+                                    <div class="testimonial-avatar">
+                                        <img src="https://ui-avatars.com/api/?name=Janith+Ranawaka&background=ff6600&color=fff" alt="Janith Ranawaka">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                 </div>
         </section>

@@ -4,6 +4,7 @@
 @import url('footer.css');
 @import url('scrollButton.css');
 
+
 * {
   padding: 0;
   margin: 0;
@@ -363,8 +364,12 @@ a {
     background: url('../images/faq.jpg') no-repeat center center/cover;
     background-attachment: fixed;
     overflow-y: hidden;
-
 }
+
+.faq-container{
+    overflow: hidden;
+}
+
 .faq-frame {
     backdrop-filter: blur(15px) saturate(100%);
     background: rgba(255, 255, 255, 0.2);
@@ -384,7 +389,6 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .faq-section::before {

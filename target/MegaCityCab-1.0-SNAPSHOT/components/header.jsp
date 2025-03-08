@@ -3,10 +3,14 @@
 
     <nav class="navbar">
         <a id="homebutton" href="index.jsp">Home</a>
-        <a id="gallerybutton" href="#">Gallery</a>
-        <a href="#">Reservation</a>
-        <a href="#">About</a>
-        <a href="#">Contact Us</a>
+        <a id="bookingbutton" href="#">Book a Ride</a>
+        <a id="mybookingsbutton" href="#">My Bookings</a>
+        <a id="driverscarsbutton" href="#">Drivers & Cars</a>
+        <a id="pricingbutton" href="#">Pricing & Billing</a>
+        <a id="helpbutton" href="#">Help & Support</a>
     </nav>
 
+    <div class="btn signin-btn" id="signin-btn">
+        <a href="login.jsp">Sign In / Sign Up </a>
+    </div>
 </header>
