@@ -3,7 +3,7 @@
 
     <nav class="navbar">
         <a id="homebutton" href="index.jsp">Home</a>
-        <a id="bookingbutton" href="#">Book a Ride</a>
+        <a id="bookingbutton" href="booking.jsp">Book a Ride</a>
         <a id="mybookingsbutton" href="#">My Bookings</a>
         <a id="driverscarsbutton" href="#">Drivers & Cars</a>
         <a id="pricingbutton" href="#">Pricing & Billing</a>

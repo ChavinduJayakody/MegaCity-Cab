@@ -26,7 +26,7 @@
             <div class="form">
                 <img src="images/login.png" alt="" class="form__img">
 
-                <form action="" class="form__content" id="loginForm">
+                <form action="login" method="post" class="form__content" id="loginForm">
                     <h1 class="form__title">Welcome !</h1>
 
                     <div class="form__div form__div-one">
@@ -36,7 +36,7 @@
 
                         <div class="form__div-input">
                             <label for="" class="form__label">Username</label>
-                            <input type="text" class="form__input" required>
+                            <input type="text" class="form__input" name="loginEmail" required>
                         </div>
                     </div>
 
@@ -47,7 +47,7 @@
 
                         <div class="form__div-input">
                             <label for="" class="form__label">Password</label>
-                            <input type="password" class="form__input" required>
+                            <input type="password" class="form__input" name="loginPassword" required>
                         </div>
                     </div>
                     <a href="#" class="form__forgot">Forgot Password?</a>
@@ -63,48 +63,48 @@
                 </form>
 
                 <!-- Signup Form -->
-                <form action="" class="form__content" id="signupForm" style="display: none;">
+                <form action="signup" method="post" class="form__content" id="signupForm" style="display: none;">
                     <h1 class="form__title">Create Account</h1>
                     <div class="form__div">
                         <div class="form__icon"><i class='bx bx-user'></i></div>
                         <div class="form__div-input">
                             <label class="form__label">Full Name</label>
-                            <input type="text" class="form__input" required>
+                            <input type="text" class="form__input" name="fullName" required>
                         </div>
                     </div>
                     <div class="form__div">
                         <div class="form__icon"><i class='bx bx-envelope'></i></div>
                         <div class="form__div-input">
                             <label class="form__label">Email</label>
-                            <input type="email" class="form__input" required>
+                            <input type="email" class="form__input"name="email" required>
                         </div>
                     </div>
                     <div class="form__div">
                         <div class="form__icon"><i class='bx bx-id-card'></i></div>
                         <div class="form__div-input">
                             <label class="form__label">NIC</label>
-                            <input type="text" class="form__input" required>
+                            <input type="text" class="form__input" name="nic" required>
                         </div>
                     </div>
                     <div class="form__div">
                         <div class="form__icon"><i class='bx bx-phone'></i></div>
                         <div class="form__div-input">
                             <label class="form__label">Telephone</label>
-                            <input type="text" class="form__input" required>
+                            <input type="text" class="form__input" name="phone" required>
                         </div>
                     </div>
                     <div class="form__div">
                         <div class="form__icon"><i class='bx bx-lock'></i></div>
                         <div class="form__div-input">
                             <label class="form__label">Password</label>
-                            <input type="password" class="form__input" required>
+                            <input type="password" class="form__input" name="password" required>
                         </div>
                     </div>
                     <div class="form__div">
                         <div class="form__icon"><i class='bx bx-lock'></i></div>
                         <div class="form__div-input">
                             <label class="form__label">Re-enter Password</label>
-                            <input type="password" class="form__input" required>
+                            <input type="password" class="form__input" name="rePassword" required>
                         </div>
                     </div>
                     <input type="submit" class="form__button" value="Sign Up Now">
@@ -116,7 +116,6 @@
             <p>&copy; 2025 MegaCity Cab. All rights reserved.</p>
         </footer>
         <script src="js/login.js"></script>
-        <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 
     </body>
 </html>
