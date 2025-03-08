@@ -188,34 +188,41 @@ img{
     transition: .3s;
 }
 .form__button:hover{
+    background-color: #273355;
+    transition: 0.5s ease-in;
+    box-shadow: 0px 15px 36px rgba(0,0,0,.15);
+}
+.google:hover{
+    background-color: seagreen;
+    transition: .5s;
     box-shadow: 0px 15px 36px rgba(0,0,0,.15);
 }
 
 /*=== Form social===*/
 .form__social{
     text-align: center;
+/*    margin-bottom: 20px;*/
 }
 .form__social-text{
     display: block;
     font-size: var(--normal-font-size);
     margin-bottom: 1rem;
+    border-bottom: 2px #000;
 }
+
+
+
 .form__social-icon{
-    display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 30px;
     height: 30px;
-    margin-right: 1rem;
-    padding: .5rem;
-    background-color: var(--text-color);
-    color: #fff;
-    font-size: 1.25rem;
-    border-radius: 50%;
+    margin-left: 1rem;
+    color: #f2f2f2;
+    font-size: 1.5rem;
+    text-align: center
 }
-.form__social-icon:hover{
-    background-color: var(--first-color);
-}
+
 /*===== MEDIA QUERIS =====*/
 @media screen and (min-width: 968px){
     .shape1{
@@ -245,11 +252,26 @@ img{
     }
 }
 
-#showSignup,
-#showLogin :hover{
+.switch{
     color:#0077b6;
 }
+.switch:hover{
+    transform: 1.01;
+}
+
+.google{
+    background: green;
+    text-align: center
+    
+}
+
 
 .footer{
-    
+        text-align: center;
+    background-color: var(--first-color);
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

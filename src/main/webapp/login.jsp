@@ -10,6 +10,8 @@
 
 
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
         <title>SignIn / SignUp | MegaCity Cab</title>
     </head>
@@ -25,7 +27,7 @@
                 <img src="images/login.png" alt="" class="form__img">
 
                 <form action="" class="form__content" id="loginForm">
-                    <h1 class="form__title">Welcome</h1>
+                    <h1 class="form__title">Welcome !</h1>
 
                     <div class="form__div form__div-one">
                         <div class="form__icon">
@@ -34,7 +36,7 @@
 
                         <div class="form__div-input">
                             <label for="" class="form__label">Username</label>
-                            <input type="text" class="form__input">
+                            <input type="text" class="form__input" required>
                         </div>
                     </div>
 
@@ -45,7 +47,7 @@
 
                         <div class="form__div-input">
                             <label for="" class="form__label">Password</label>
-                            <input type="password" class="form__input">
+                            <input type="password" class="form__input" required>
                         </div>
                     </div>
                     <a href="#" class="form__forgot">Forgot Password?</a>
@@ -54,13 +56,9 @@
 
                     <div class="form__social">
                         <span class="form__social-text">Our Sign In with</span>
+                        <button type="submit" class="form__button google" >Sign Up With<i class='fa-brands fa-google form__social-icon' ></i></button>
+                        <span >Don't have an account? <a href="#" id="showSignup"class="switch">Sign Up Now</a></span>
 
-                        <a href="#" class="form__social-icon"><i class='bx bxl-facebook' ></i></a>
-                        <a href="#" class="form__social-icon"><i class='bx bxl-google' ></i></a>
-                        <a href="#" class="form__social-icon"><i class='bx bxl-instagram' ></i></a>
-                    </div>
-                    <div>
-                        <span class="form__signup">Don't have an account? <a href="#" id="showSignup">Sign Up Now</a></span>
                     </div>
                 </form>
 
@@ -110,11 +108,15 @@
                         </div>
                     </div>
                     <input type="submit" class="form__button" value="Sign Up Now">
-                    <span class="form__signup">Already have an account? <a href="#" id="showLogin">Sign In Now</a></span>
+                    <span class="form__signup">Already have an account? <a href="#" id="showLogin" class="switch">Sign In Now</a></span>
                 </form>
             </div>
-
         </div>
+        <footer class="footer">
+            <p>&copy; 2025 MegaCity Cab. All rights reserved.</p>
+        </footer>
         <script src="js/login.js"></script>
+        <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
     </body>
 </html>
