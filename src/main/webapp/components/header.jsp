@@ -1,4 +1,5 @@
 <%@page import="com.mycompany.megacitycab.model.Customer" %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <header id="header" class="header">
     <a class="navbar-logo" href="index.jsp">Mega City <span class="theme-accent-color">Cab</span></a>
 
