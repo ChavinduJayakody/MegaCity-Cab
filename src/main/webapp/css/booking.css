@@ -1,104 +1,187 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-/* Book a Ride Section */
-.ride-booking {
-    background: url('../images/faq.jpg') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-    margin-top:20px;
-
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #f0f0f0, #e0e0e0, #f0f0f0, #e0e0e0);    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333;
 }
 
-/* Header */
-.booking-header {
-    margin-bottom: 20px;
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Booking Container */
+.booking-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
     margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    
+}
+
+/* Booking Header */
+.booking-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333; 
 }
 
 .main-heading {
     font-size: 36px;
     font-weight: 700;
-    color: #FFD700; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
 }
 
 .sub-heading {
     font-size: 18px;
-    color: #fff;
+    color: #555; 
 }
-
 /* Booking Content */
 .booking-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border:2px solid #bdbdbdf2;
 }
 
-/* Booking Form */
-.booking-form {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 400px;
+/* Form Box */
+.form-box {
+    flex: 1;
+    background: #fff; 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
 }
 
 label {
-    font-weight: 600;
-    color: #333;
     display: block;
-    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 8px;
 }
 
-input, select {
+input[type="text"],
+input[type="datetime-local"],
+select {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-/* Button */
-button {
-    background: #FFD700; 
-    color: black;
-    border: none;
     padding: 12px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Current Location Button */
+.btn-current-location {
     width: 100%;
-    transition: 0.3s;
-    font-weight: bold;
+    padding: 12px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.3s ease;
 }
 
-button:hover {
-    background: #E6C300;
+.btn-current-location:hover {
+    background: #0056b3;
 }
 
-/* Google Maps */
+.btn-current-location i {
+    font-size: 16px;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #218838;
+}
+
+/* Map Container */
 .map-container {
-    width: 400px;
-    border-radius: 10px;
+    flex: 1;
+    height: 500px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive */
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Flatpickr Input */
+.flatpickr-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.flatpickr-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .booking-content {
         flex-direction: column;
-        align-items: center;
     }
-    .booking-form, .map-container {
-        width: 100%;
+
+    .map-container {
+        height: 300px;
     }
 }
