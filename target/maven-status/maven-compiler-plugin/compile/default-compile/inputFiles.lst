@@ -1,5 +1,9 @@
 G:\ICBT\MegaCityCab\src\main\java\com\mycompany\megacitycab\servlets\SignupServlet.java
+G:\ICBT\MegaCityCab\src\main\java\com\mycompany\megacitycab\model\Driver.java
 G:\ICBT\MegaCityCab\src\main\java\com\mycompany\megacitycab\model\Customer.java
 G:\ICBT\MegaCityCab\src\main\java\com\mycompany\megacitycab\dao\DatabaseConnection.java
+G:\ICBT\MegaCityCab\src\main\java\com\mycompany\megacitycab\servlets\DriverLoginServlet.java
 G:\ICBT\MegaCityCab\src\main\java\com\mycompany\megacitycab\dao\CustomerDAO.java
+G:\ICBT\MegaCityCab\src\main\java\com\mycompany\megacitycab\servlets\DriverSignupServlet.java
+G:\ICBT\MegaCityCab\src\main\java\com\mycompany\megacitycab\dao\DriverDAO.java
 G:\ICBT\MegaCityCab\src\main\java\com\mycompany\megacitycab\servlets\LoginServlet.java

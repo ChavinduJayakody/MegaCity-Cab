@@ -25,7 +25,7 @@
             <!-- Right Column (Form) -->
             <div class="form-content">
                 <!-- Driver Login Form -->
-                <form action="driver-login" method="post" class="form-content" id="driverLoginForm">
+                <form action="${pageContext.request.contextPath}/driver-login" method="post" class="form-content" id="driverLoginForm">
                     <h1 class="form-title">Welcome, Driver!</h1>
 
                     <div class="form-group">
@@ -46,7 +46,7 @@
                 </form>
 
                 <!-- Driver Signup Form -->
-                <form action="/driver-signup" method="post" enctype="multipart/form-data" class="form-content" id="driverSignupForm" style="display: none;">
+                <form action="${pageContext.request.contextPath}/driver-signup" method="post" enctype="multipart/form-data" class="form-content" id="driverSignupForm" style="display: none;">
                     <h1 class="form-title">Create Driver Account</h1>
 
                     <!-- Progress Bar -->
