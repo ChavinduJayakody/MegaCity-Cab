@@ -9,21 +9,24 @@ public class DatabaseConnection {
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
+    private static Connection conn = null;
+
+    // Private constructor to prevent instantiation
+    private DatabaseConnection() {}
+
     static {
         try {
             // Load the MySQL JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("Database connected successfully!");
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            throw new RuntimeException("MySQL JDBC Driver not found", e);
+            throw new RuntimeException("Error initializing database connection", e);
         }
     }
 
-    public static Connection getConnection() throws SQLException {
-   System.out.println("Connecting to database...");
-    Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-    System.out.println("Connected to database successfully!");
-    return conn;    }
-    
+    public static Connection getConnection() {
+        return conn;
+    }
 }
-
