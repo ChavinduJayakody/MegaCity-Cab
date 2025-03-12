@@ -56,7 +56,7 @@
                     </li>
 
                     <li>
-                        <a href="driver.jsp" id="drivers">
+                        <a href="drivers.jsp" id="drivers">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -345,9 +345,29 @@ document.addEventListener('DOMContentLoaded', function () {
         setActiveItem(defaultActiveItem);
     }
 });
+
+        document.getElementById("signoutBtn").addEventListener("click", function (event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You will be logged out of your session!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, log me out!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "components/processSignout.jsp";
+                }
+            });
+        });
         </script>
 
         <!-- ====== ionicons ======= -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>

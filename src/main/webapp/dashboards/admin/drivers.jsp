@@ -1,7 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.mycompany.megacitycab.dao.StaffDAO"%>
-<%@page import="com.mycompany.megacitycab.model.Staff"%>
+<%@page import="com.mycompany.megacitycab.dao.DriverDAO"%>
+<%@page import="com.mycompany.megacitycab.model.Driver"%>
 <%@page import="java.util.List"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Add Staff | MegaCity Cab </title>
+        <title> Driver | MegaCity Cab </title>
         <!-- ======= Styles ====== -->
         <link rel="stylesheet" href="adminDashboard.css">
     </head>
@@ -46,7 +47,7 @@
                     </li>
 
                     <li>
-                        <a href="customers.jsp" id="customers">
+                        <a href="customers.jsp" id="customers" class="active">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -55,7 +56,7 @@
                     </li>
 
                     <li>
-                        <a href="drivers.jsp" id="drivers">
+                        <a href="#" id="drivers">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -82,7 +83,7 @@
                     </li>
 
                     <li>
-                        <a href="addStaff.jsp" id="addStaff" class="active">
+                        <a href="addStaff.jsp" id="addStaff">
                             <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
                             <span class="title">Add Staff</span>
                         </a>
@@ -100,83 +101,66 @@
             </div>
 
             <!-- ========================= Main ==================== -->
-        <div class="main">
-            <%@include file="components/header.jsp" %>
+            <div class="main">
+                <%@include file="components/header.jsp" %>
 
-            <%@include file="components/cards.jsp" %>
+                <%@include file="components/cards.jsp" %>
 
-            <!-- ================ Add Staff Form ================= -->
-            <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader">
-                        <h2>Add New Staff</h2>
+                <!-- ================ Driver Details ================= -->
+                <div class="details1 details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Driver Details</h2>
+                        </div>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Name</td>
+                                    <td>Email</td>
+                                    <td>Phone</td>
+                                    <td>License Plate</td>
+                                    <td>Vehicle Model</td>
+                                    <td>Vehicle Color</td>
+                                    <td>Vehicle Image</td>
+                                    <td>Created At</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <%
+                                    DriverDAO driverDAO = new DriverDAO();
+                                    List<Driver> drivers = driverDAO.getAllDrivers();
+                                    SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, HH:mm");
+                                    for (Driver driver : drivers) {
+                                %>
+                                <tr>
+                                    <td><%= driver.getDriverId()%></td>
+                                    <td><%= driver.getFullName()%></td>
+                                    <td><%= driver.getEmail()%></td>
+                                    <td><%= driver.getPhone()%></td>
+                                    <td><%= driver.getLicensePlate()%></td>
+                                    <td><%= driver.getVehicleModel()%></td>
+                                    <td><%= driver.getVehicleColor()%></td>
+                                    <td>
+                                        <% if (driver.getVehicleImage() != null && !driver.getVehicleImage().isEmpty()) {%>
+                                        <img src="<%= driver.getVehicleImage()%>" alt="Vehicle Image" class="vehicle-image">
+                                        <% } else { %>
+                                        No Image
+                                        <% }%>
+                                    </td>
+                                    <td><%= dateFormat.format(driver.getCreatedAt())%></td>
+                                </tr>
+                                <%
+                                    }
+                                %>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <form action="${pageContext.request.contextPath}/add-admin" method="POST" class="form">
-                        <div class="form-group">
-                            <label for="fullname">Full Name:</label>
-                            <input type="text" id="name" name="fullname" placeholder="Full name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" placeholder="Password" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="role">Role:</label>
-                            <select id="role" name="role" required>
-                                <option value="staff">Staff</option>
-                                <option value="admin">Admin</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="btn">Add User</button>
-                    </form>
                 </div>
 
-                <!-- ================= Recently Created Staff ================ -->
-                <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2>Recently Created Staff</h2>
-                    </div>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Role</td>
-                                <td>Email</td>
-                                <td>Created At</td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <%
-                                StaffDAO staffDAO = new StaffDAO();
-                                List<Staff> recentStaff = staffDAO.getRecentlyAddedStaff();
-                                for (Staff staff : recentStaff) {
-                            %>
-                            <tr>
-                                <td><%= staff.getFullName()%></td>
-                                <td><%= staff.getRole()%></td>
-                                <td><%= staff.getEmail()%></td>
-                                <td><%= staff.getCreatedAt()%></td>
-                            </tr>
-                            <%
-                                }
-                            %>
-                        </tbody>
-                    </table>
-                </div>
             </div>
-        </div>
-
         <!-- =========== Scripts =========  -->
         <script>
             // add hovered class to selected list item
@@ -233,56 +217,28 @@
                     });
                 });
             });
-            
+
         </script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const urlParams = new URLSearchParams(window.location.search);
-                const status = urlParams.get("status");
-                const message = urlParams.get("message");
+            document.getElementById("signoutBtn").addEventListener("click", function (event) {
+                event.preventDefault();
 
-                if (status === "success") {
-                    Swal.fire({
-                        title: "Success!",
-                        text: message,
-                        icon: "success",
-                        toast: true,
-                        position: "top-right",
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
-                } else if (status === "error") {
-                    Swal.fire({
-                        title: "Error!",
-                        text: message,
-                        icon: "error",
-                        toast: true,
-                        position: "top-right",
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
-                }
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You will be logged out of your session!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, log me out!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "components/processSignout.jsp";
+                    }
+                });
             });
-
-                    document.getElementById("signoutBtn").addEventListener("click", function (event) {
-            event.preventDefault();
-
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You will be logged out of your session!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, log me out!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "components/processSignout.jsp";
-                }
-            });
-        });
         </script>
 
         <!-- ====== ionicons ======= -->

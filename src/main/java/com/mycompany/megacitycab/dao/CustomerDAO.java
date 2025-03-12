@@ -51,6 +51,7 @@ public class CustomerDAO {
         }
     }
     
+//    all customers
     public List<Customer> getAllCustomers() throws SQLException {
         String sql = "SELECT * FROM customers ORDER BY created_at DESC";
         List<Customer> customers = new ArrayList<>();
@@ -70,4 +71,19 @@ public class CustomerDAO {
         }
         return customers;
     }
+    
+//    count
+    public int getCustomerCount() throws SQLException {
+    String sql = "SELECT COUNT(*) AS customer_count FROM customers";
+    int count = 0;
+    try (Connection conn = DatabaseConnection.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            count = rs.getInt("customer_count");
+        }
+    }
+    return count;
+}
+    
 }

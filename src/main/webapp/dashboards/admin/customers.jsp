@@ -1,4 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.mycompany.megacitycab.dao.CustomerDAO"%>
+<%@page import="com.mycompany.megacitycab.model.Customer"%>
+<%@page import="java.util.List"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +10,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Add Staff | MegaCity Cab </title>
+        <title> Customer | MegaCity Cab </title>
         <!-- ======= Styles ====== -->
-        <link rel="stylesheet" href="admin/adminDashboard.css">
+        <link rel="stylesheet" href="adminDashboard.css">
     </head>
 
     <body>
@@ -52,6 +56,15 @@
                     </li>
 
                     <li>
+                        <a href="drivers.jsp" id="drivers">
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                            <span class="title">Drivers</span>
+                        </a>
+                    </li>
+
+                    <li>
                         <a href="inquiries.jsp" id="inquiries">
                             <span class="icon">
                                 <ion-icon name="help-outline"></ion-icon>
@@ -89,51 +102,54 @@
 
             <!-- ========================= Main ==================== -->
             <div class="main">
-                <%@include file="admin/components/header.jsp" %>
+                <%@include file="components/header.jsp" %>
 
-                <%@include file="admin/components/cards.jsp" %>
+                <%@include file="components/cards.jsp" %>
 
-                <!-- ================ Add Staff Form ================= -->
+                <!-- ================ Customer Details ================= -->
                 <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Add New Staff</h2>
+                            <h2>Customer Details</h2>
                         </div>
 
-                        <form action="${pageContext.request.contextPath}/add-admin" method="POST" class="form">
-                            <div class="form-group">
-                                <label for="fullname">Full Name:</label>
-                                <input type="text" id="name" name="fullname" placeholder="Full name" required>
-                            </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Email</td>
+                                    <td>NIC</td>
+                                    <td>Phone</td>
+                                    <td>Created At</td>
+                                </tr>
+                            </thead>
 
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" placeholder="Email" required>
-                            </div>
+                            <tbody>
+                                <%
+                                    CustomerDAO customerDAO = new CustomerDAO();
+                                    List<Customer> customers = customerDAO.getAllCustomers();
+                                    for (Customer customer : customers) {
+                                %>
+                                <tr>
+                                    <td><%= customer.getFullName()%></td>
+                                    <td><%= customer.getEmail()%></td>
+                                    <td><%= customer.getNic()%></td>
+                                    <td><%= customer.getPhone()%></td>
+                                    <%
+                                        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, HH:mm");
+                                    %>
 
-                            <div class="form-group">
-                                <label for="password">Password:</label>
-                                <input type="password" id="password" name="password" placeholder="Password" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="role">Role:</label>
-                                <select id="role" name="role" required>
-                                    <option value="staff">Staff</option>
-                                    <option value="admin">Admin</option>
-                                </select>
-                            </div>
-
-                            <button type="submit" class="btn">Add User</button>
-                        </form>
-                    </div>
-
-                            <!-- ================= Recently Customers Staff ================ -->
-                            <div class="recentCustomers">
-
+                                    <td><%= dateFormat.format(customer.getCreatedAt())%></td>
+                                </tr>
+                                <%
+                                    }
+                                %>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
+        </div>
 
             <!-- =========== Scripts =========  -->
             <script>
@@ -196,33 +212,23 @@
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
             <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const status = urlParams.get("status");
-                    const message = urlParams.get("message");
+                        document.getElementById("signoutBtn").addEventListener("click", function (event) {
+            event.preventDefault();
 
-                    if (status === "success") {
-                        Swal.fire({
-                            title: "Success!",
-                            text: message,
-                            icon: "success",
-                            toast: true,
-                            position: "top-right",
-                            showConfirmButton: false,
-                            timer: 3000
-                        });
-                    } else if (status === "error") {
-                        Swal.fire({
-                            title: "Error!",
-                            text: message,
-                            icon: "error",
-                            toast: true,
-                            position: "top-right",
-                            showConfirmButton: false,
-                            timer: 3000
-                        });
-                    }
-                });
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You will be logged out of your session!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, log me out!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "components/processSignout.jsp";
+                }
+            });
+        });
             </script>
 
             <!-- ====== ionicons ======= -->

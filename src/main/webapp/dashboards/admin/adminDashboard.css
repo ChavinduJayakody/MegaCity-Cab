@@ -269,6 +269,14 @@ body {
   /* margin-top: 10px; */
 }
 
+.details1 {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: initial !important; 
+  /* margin-top: 10px; */
+}
+
 .details .recentOrders {
   position: relative;
   min-height: 500px;
@@ -402,6 +410,20 @@ body {
 .recentCustomers table tr:hover td h4 span {
   color: var(--white);
 }
+
+            .vehicle-image {
+                width: 50px; 
+                height: auto; 
+                border-radius: 5px; 
+            }
+            .sort-options {
+                margin-bottom: 20px;
+            }
+            .sort-options select {
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
 
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {

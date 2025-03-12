@@ -4,6 +4,8 @@
  */
 package com.mycompany.megacitycab.model;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Chavindu Jayakody
@@ -19,6 +21,7 @@ public class Driver {
     private String vehicleColor;
     private String vehicleImage; 
     private String password;
+    private Timestamp createdAt;
 
     // Getters and Setters
     public int getDriverId() { return driverId; }
@@ -44,7 +47,12 @@ public class Driver {
 
     public String getVehicleImage() { return vehicleImage; }
     public void setVehicleImage(String vehicleImage) { this.vehicleImage = vehicleImage; }
-
+    
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    public Timestamp getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
+    
+    
 }

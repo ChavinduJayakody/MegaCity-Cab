@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DriverDAO {
     // Get driver by email
@@ -86,6 +88,42 @@ public class DriverDAO {
         }
         return false; 
     }
+    
+    public List<Driver> getAllDrivers() throws SQLException {
+        String sql = "SELECT * FROM drivers ORDER BY driver_id";
+        List<Driver> drivers = new ArrayList<>();
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Driver driver = new Driver();
+                driver.setDriverId(rs.getInt("driver_id"));
+                driver.setFullName(rs.getString("full_name"));
+                driver.setEmail(rs.getString("email"));
+                driver.setPhone(rs.getString("phone"));
+                driver.setLicensePlate(rs.getString("license_plate"));
+                driver.setVehicleModel(rs.getString("vehicle_model"));
+                driver.setVehicleColor(rs.getString("vehicle_color"));
+                driver.setVehicleImage(rs.getString("vehicle_image"));
+                driver.setCreatedAt(rs.getTimestamp("created_at")); 
+                drivers.add(driver);
+            }
+        }
+        return drivers;
+    }
+    
+    public int getDriverCount() throws SQLException {
+    String sql = "SELECT COUNT(*) AS driver_count FROM drivers";
+    int count = 0;
+    try (Connection conn = DatabaseConnection.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            count = rs.getInt("driver_count");
+        }
+    }
+    return count;
+}
 }
 
 
