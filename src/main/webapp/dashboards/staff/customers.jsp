@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Customer | MegaCity Cab </title>
         <!-- ======= Styles ====== -->
-        <link rel="stylesheet" href="adminDashboard.css">
+        <link rel="stylesheet" href="staffDashboard.css">
     </head>
 
     <body>
@@ -29,7 +29,7 @@
                     </li>
 
                     <li>
-                        <a href="adminDashboard.jsp" id="dashboard">
+                        <a href="staffDashboard.jsp" id="dashboard">
                             <span class="icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </span>
@@ -74,13 +74,6 @@
                     </li>
 
                     <li>
-                        <a href="addStaff.jsp" id="addStaff">
-                            <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
-                            <span class="title">Add Staff</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="#" id="signoutBtn">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
@@ -117,8 +110,8 @@
 
                             <tbody>
                                 <%
-                                    CustomerDAO customerDAOa = new CustomerDAO();
-                                        List<Customer> customers = customerDAOa.getAllCustomers();
+                                    CustomerDAO customerDAOs = new CustomerDAO();
+                                        List<Customer> customers = customerDAOs.getAllCustomers();
                                     for (Customer customer : customers) {
                                 %>
                                 <tr>

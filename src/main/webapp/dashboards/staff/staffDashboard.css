@@ -269,9 +269,16 @@ body {
   /* margin-top: 10px; */
 }
 
+.details1 {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+display: initial !important;
+/* margin-top: 10px; */
+}
+
 .details .recentOrders {
   position: relative;
-  display: grid;
   min-height: 500px;
   background: var(--white);
   padding: 20px;
