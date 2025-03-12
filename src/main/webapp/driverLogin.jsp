@@ -54,7 +54,7 @@
                         <div class="progress"></div>
                     </div>
 
-                    <!-- Step 1: Personal Details -->
+                    <!-- Personal Details -->
                     <div class="form-step active" id="step1">
                         <div class="step-title">Personal Details</div>
 
@@ -82,7 +82,7 @@
                         </div>
                     </div>
 
-                    <!-- Step 2: Vehicle Details -->
+                    <!-- Vehicle Details -->
                     <div class="form-step" id="step2">
                         <div class="step-title">Vehicle Details</div>
 
@@ -112,7 +112,7 @@
                         </div>
                     </div>
 
-                    <!-- Step 3: Password and Final Details -->
+                    <!--  Password and Final Details -->
                     <div class="form-step" id="step3">
                         <div class="step-title">Password</div>
 
@@ -140,80 +140,72 @@
         </footer>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-    // Toggle between Driver Login and Signup Forms
-    document.getElementById("showDriverSignup").addEventListener("click", function () {
-        document.getElementById("driverLoginForm").style.display = "none";
-        document.getElementById("driverSignupForm").style.display = "block";
-        resetFormSteps(); // Reset steps when switching to signup form
-    });
+            document.getElementById("showDriverSignup").addEventListener("click", function () {
+                document.getElementById("driverLoginForm").style.display = "none";
+                document.getElementById("driverSignupForm").style.display = "block";
+                resetFormSteps(); // Reset steps when switching to signup form
+            });
 
-    document.getElementById("showDriverLoginFromSignup").addEventListener("click", function () {
-        document.getElementById("driverSignupForm").style.display = "none";
-        document.getElementById("driverLoginForm").style.display = "block";
-    });
+            document.getElementById("showDriverLoginFromSignup").addEventListener("click", function () {
+                document.getElementById("driverSignupForm").style.display = "none";
+                document.getElementById("driverLoginForm").style.display = "block";
+            });
 
-    // Multi-Step Form Elements
-    const steps = [document.getElementById("step1"), document.getElementById("step2"), document.getElementById("step3")];
-    const nextButtons = [document.getElementById("nextButton1"), document.getElementById("nextButton2")];
-    const prevButtons = [document.getElementById("prevButton1"), document.getElementById("prevButton2")];
-    const progressBar = document.querySelector(".progress");
+            const steps = [document.getElementById("step1"), document.getElementById("step2"), document.getElementById("step3")];
+            const nextButtons = [document.getElementById("nextButton1"), document.getElementById("nextButton2")];
+            const prevButtons = [document.getElementById("prevButton1"), document.getElementById("prevButton2")];
+            const progressBar = document.querySelector(".progress");
 
-    let currentStep = 0; // Track current step (0-based index)
+            let currentStep = 0; 
 
-    // Function to reset form steps to the first step
-    function resetFormSteps() {
-        currentStep = 0;
-        showStep(currentStep);
-        progressBar.style.width = "33.33%";
-    }
-
-    // Function to show only the active step
-    function showStep(step) {
-        steps.forEach((s, index) => {
-            s.style.display = index === step ? "block" : "none";
-        });
-
-        // Update progress bar
-        const progressValues = ["33.33%", "66.66%", "100%"];
-        progressBar.style.width = progressValues[step];
-    }
-
-    // Function to validate fields in a step
-    function validateStep(step) {
-        const inputs = steps[step].querySelectorAll("input");
-        let isValid = true;
-        inputs.forEach(input => {
-            if (!input.value.trim()) {
-                isValid = false;
-                input.style.borderColor = "red"; 
-            } else {
-                input.style.borderColor = ""; 
-            }
-        });
-        return isValid;
-    }
-
-    // Handle "Next" button clicks
-    nextButtons.forEach((btn, index) => {
-        btn.addEventListener("click", function () {
-            if (validateStep(currentStep)) {
-                currentStep++;
+            function resetFormSteps() {
+                currentStep = 0;
                 showStep(currentStep);
+                progressBar.style.width = "33.33%";
             }
-        });
-    });
 
-    // Handle "Previous" button clicks
-    prevButtons.forEach((btn, index) => {
-        btn.addEventListener("click", function () {
-            currentStep--;
-            showStep(currentStep);
-        });
-    });
+            function showStep(step) {
+                steps.forEach((s, index) => {
+                    s.style.display = index === step ? "block" : "none";
+                });
 
-    // Initialize the form with only Step 1 visible
-    resetFormSteps();
-});
+                // Update progress bar
+                const progressValues = ["33.33%", "66.66%", "100%"];
+                progressBar.style.width = progressValues[step];
+            }
+
+            function validateStep(step) {
+                const inputs = steps[step].querySelectorAll("input");
+                let isValid = true;
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        isValid = false;
+                        input.style.borderColor = "red";
+                    } else {
+                        input.style.borderColor = "";
+                    }
+                });
+                return isValid;
+            }
+
+            nextButtons.forEach((btn, index) => {
+                btn.addEventListener("click", function () {
+                    if (validateStep(currentStep)) {
+                        currentStep++;
+                        showStep(currentStep);
+                    }
+                });
+            });
+
+            prevButtons.forEach((btn, index) => {
+                btn.addEventListener("click", function () {
+                    currentStep--;
+                    showStep(currentStep);
+                });
+            });
+
+                        resetFormSteps();
+                    });
         </script>
     </body>
 </html>

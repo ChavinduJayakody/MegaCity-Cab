@@ -39,7 +39,7 @@ public class DriverDAO {
         return driver;
     }
 
-    // Add a new driver
+    // add new driver
     public void addDriver(Driver driver) throws SQLException {
         String sql = "INSERT INTO drivers (full_name, email, phone, license_plate, vehicle_model, vehicle_color, vehicle_image, password) " +
                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -57,19 +57,35 @@ public class DriverDAO {
         }
     }
     
+//    check emails
     public boolean emailExists(String email) throws SQLException {
-    String query = "SELECT COUNT(*) FROM drivers WHERE email = ?";
-    try (Connection conn = DatabaseConnection.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(query)) {
-        stmt.setString(1, email);
-        try (ResultSet rs = stmt.executeQuery()) {
-            if (rs.next() && rs.getInt(1) > 0) {
-                return true; 
+        String query = "SELECT COUNT(*) FROM drivers WHERE email = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, email);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next() && rs.getInt(1) > 0) {
+                    return true; 
+                }
             }
         }
+        return false; 
     }
-    return false; 
-}
+    
+//    check vehicle
+    public boolean licenseExists(String licensePlate) throws SQLException {
+        String query = "SELECT COUNT(*) FROM drivers WHERE license_plate = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, licensePlate);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next() && rs.getInt(1) > 0) {
+                    return true; 
+                }
+            }
+        }
+        return false; 
+    }
 }
 
 

@@ -17,11 +17,11 @@ public class CreateStaffServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Staff loggedInStaff = (Staff) session.getAttribute("staff");
+        Staff loggedInStaff = (Staff) session.getAttribute("admin");
 
         // Only admin can create staff accounts
         if (loggedInStaff == null || !"admin".equals(loggedInStaff.getRole())) {
-            response.sendRedirect("staff-login.jsp?error=Unauthorized access");
+            response.sendRedirect("staffLogin.jsp?error=Unauthorized access");
             return;
         }
 
@@ -38,10 +38,10 @@ public class CreateStaffServlet extends HttpServlet {
         StaffDAO staffDAO = new StaffDAO();
         try {
             staffDAO.addStaff(newStaff);
-            response.sendRedirect("admin-dashboard.jsp?success=Staff account created successfully");
+            response.sendRedirect("admiDashboard.jsp?success=Staff account created successfully");
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("admin-dashboard.jsp?error=Error creating staff account");
+            response.sendRedirect("adminDashboard.jsp?error=Error creating staff account");
         }
     }
 }

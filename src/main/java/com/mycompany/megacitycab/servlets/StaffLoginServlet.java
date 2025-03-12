@@ -30,7 +30,7 @@ public class StaffLoginServlet extends HttpServlet {
                 if ("admin".equals(staff.getRole())) {
                     response.sendRedirect("dashboards/admin/adminDashboard.jsp");
                 } else {
-                    response.sendRedirect("staffDashboard.jsp");
+                    response.sendRedirect("dashboards/staff/staffDashboard.jsp");
                 }
             } else {
                 response.sendRedirect("staffLogin.jsp?error=Invalid email or password");
