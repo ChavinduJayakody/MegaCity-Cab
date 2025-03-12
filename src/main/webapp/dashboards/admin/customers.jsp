@@ -126,8 +126,8 @@
 
                             <tbody>
                                 <%
-                                    CustomerDAO customerDAO = new CustomerDAO();
-                                    List<Customer> customers = customerDAO.getAllCustomers();
+                                    CustomerDAO customerDAOa = new CustomerDAO();
+                                        List<Customer> customers = customerDAOa.getAllCustomers();
                                     for (Customer customer : customers) {
                                 %>
                                 <tr>

@@ -11,6 +11,6 @@
     </div>
 
     <div class="user">
-        <img src="assets/imgs/customer01.jpg" alt="">
+        <ion-icon name="person-circle-outline" class="profile-icon"></ion-icon>
     </div>
 </div>

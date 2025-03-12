@@ -73,15 +73,6 @@
                     </li>
 
                     <li>
-                        <a href="settings.jsp" id="settings">
-                            <span class="icon">
-                                <ion-icon name="settings-outline"></ion-icon>
-                            </span>
-                            <span class="title">Settings</span>
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="addStaff.jsp" id="addStaff" class="active">
                             <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
                             <span class="title">Add Staff</span>

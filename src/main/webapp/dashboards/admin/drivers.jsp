@@ -130,8 +130,8 @@
 
                             <tbody>
                                 <%
-                                    DriverDAO driverDAO = new DriverDAO();
-                                    List<Driver> drivers = driverDAO.getAllDrivers();
+                                    DriverDAO driverDAOa = new DriverDAO();
+                                        List<Driver> drivers = driverDAOa.getAllDrivers();
                                     SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, HH:mm");
                                     for (Driver driver : drivers) {
                                 %>
