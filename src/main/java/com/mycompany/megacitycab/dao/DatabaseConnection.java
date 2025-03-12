@@ -11,13 +11,17 @@ public class DatabaseConnection {
 
     private static Connection conn = null;
 
-    // Private constructor to prevent instantiation
     private DatabaseConnection() {}
 
     static {
+        initializeConnection();
+    }
+
+    // db connection
+    private static void initializeConnection() {
         try {
-            // Load the MySQL JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
+            // Create the connection
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("Database connected successfully!");
         } catch (ClassNotFoundException | SQLException e) {
@@ -26,7 +30,30 @@ public class DatabaseConnection {
         }
     }
 
+    // Get the database connection
     public static Connection getConnection() {
+        try {
+            if (conn == null || conn.isClosed()) {
+                System.out.println("Reconnecting to the database...");
+                initializeConnection(); 
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error checking database connection", e);
+        }
         return conn;
+    }
+
+    // Close db connection
+    public static void closeConnection() {
+        if (conn != null) {
+            try {
+                conn.close();
+                System.out.println("Database connection closed.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw new RuntimeException("Error closing database connection", e);
+            }
+        }
     }
 }
