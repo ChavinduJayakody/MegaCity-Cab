@@ -4,6 +4,8 @@
  */
 package com.mycompany.megacitycab.model;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Chavindu Jayakody
@@ -15,6 +17,7 @@ public class Staff {
     private String email;
     private String password;
     private String role;
+    private Timestamp createdAt;
 
 
     // Getters and Setters
@@ -32,5 +35,8 @@ public class Staff {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+    
+    public Timestamp getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
 
 }

@@ -5,8 +5,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StaffDAO {
     // Get staff by email
@@ -24,6 +27,7 @@ public class StaffDAO {
                 staff.setEmail(rs.getString("email"));
                 staff.setPassword(rs.getString("password"));
                 staff.setRole(rs.getString("role"));
+                staff.setCreatedAt(rs.getTimestamp("created_at"));
             }
         }
         return staff;
@@ -36,7 +40,7 @@ public class StaffDAO {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, staff.getFullName());
             stmt.setString(2, staff.getEmail());
-            stmt.setString(3, hashPassword(staff.getPassword())); // Hash password
+            stmt.setString(3, hashPassword(staff.getPassword())); 
             stmt.setString(4, staff.getRole());
             stmt.executeUpdate();
         }
@@ -57,5 +61,25 @@ public class StaffDAO {
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("Failed to hash password", e);
         }
+    }
+
+    // Fetch recently added staff
+    public List<Staff> getRecentlyAddedStaff() throws SQLException {
+        String sql = "SELECT * FROM staff WHERE role = 'staff' ORDER BY created_at DESC LIMIT 5";  
+        List<Staff> staffList = new ArrayList<>();
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Staff staff = new Staff();
+                staff.setStaffId(rs.getInt("staff_id"));
+                staff.setFullName(rs.getString("full_name"));
+                staff.setEmail(rs.getString("email"));
+                staff.setRole(rs.getString("role"));
+                staff.setCreatedAt(rs.getTimestamp("created_at")); 
+                staffList.add(staff);
+            }
+        }
+        return staffList;
     }
 }
