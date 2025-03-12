@@ -34,7 +34,6 @@ public class DriverSignupServlet extends HttpServlet {
         ServletFileUpload upload = new ServletFileUpload(factory);
 
         try {
-            // Parse the request to get file items
             List<FileItem> items = upload.parseRequest(request);
 
             Driver driver = new Driver();
@@ -42,7 +41,7 @@ public class DriverSignupServlet extends HttpServlet {
 
             for (FileItem item : items) {
                 if (item.isFormField()) {
-                    // Handle regular form fields
+                    
                     String fieldName = item.getFieldName();
                     String fieldValue = item.getString();
 

@@ -29,7 +29,7 @@
                     </li>
 
                     <li>
-                        <a href="adminDashboard.jsp" id="dashboard">
+                        <a href="adminDashboard.jsp" >
                             <span class="icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </span>
@@ -38,7 +38,7 @@
                     </li>
 
                     <li>
-                        <a href="bookings.jsp" id="bookings">
+                        <a href="bookings.jsp" >
                             <span class="icon">
                                 <ion-icon name="ticket-outline"></ion-icon>
                             </span>
@@ -47,7 +47,7 @@
                     </li>
 
                     <li>
-                        <a href="customers.jsp" id="customers" class="active">
+                        <a href="customers.jsp" class="active">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -56,7 +56,7 @@
                     </li>
 
                     <li>
-                        <a href="drivers.jsp" id="drivers">
+                        <a href="drivers.jsp" >
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -65,7 +65,7 @@
                     </li>
 
                     <li>
-                        <a href="inquiries.jsp" id="inquiries">
+                        <a href="inquiries.jsp" >
                             <span class="icon">
                                 <ion-icon name="help-outline"></ion-icon>
                             </span>
@@ -74,7 +74,7 @@
                     </li>
 
                     <li>
-                        <a href="addStaff.jsp" id="addStaff">
+                        <a href="addStaff.jsp" >
                             <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
                             <span class="title">Add Staff</span>
                         </a>
