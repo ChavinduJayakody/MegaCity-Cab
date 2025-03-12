@@ -35,7 +35,7 @@ public class DriverLoginServlet extends HttpServlet {
             if (driver != null && driver.getPassword().equals(password)) {
                 HttpSession session = request.getSession();
                 session.setAttribute("driver", driver);
-                response.sendRedirect("driverDashboard.jsp");
+                response.sendRedirect("dashboards/drivers/driverDashboard.jsp");
             } else {
                 response.sendRedirect("driverLogin.jsp?error=Invalid email or password");
             }
