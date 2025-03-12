@@ -1,6 +1,7 @@
 
 package com.mycompany.megacitycab.model;
 
+import java.sql.Timestamp;
 /**
  *
  * @author Chavindu Jayakody
@@ -12,6 +13,7 @@ public class Customer {
     private String nic;
     private String phone;
     private String password;
+    private Timestamp createdAt;
 
     // Getters and Setters
     public int getCustomerId() { return customerId; }
@@ -31,5 +33,8 @@ public class Customer {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+    
+    public Timestamp getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
 }
 

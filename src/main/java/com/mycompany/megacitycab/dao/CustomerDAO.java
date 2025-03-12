@@ -14,6 +14,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerDAO {
     public Customer getCustomerByEmail(String email) throws SQLException {
@@ -47,5 +49,25 @@ public class CustomerDAO {
             stmt.setString(5, customer.getPassword());
             stmt.executeUpdate();
         }
+    }
+    
+    public List<Customer> getAllCustomers() throws SQLException {
+        String sql = "SELECT * FROM customers ORDER BY created_at DESC";
+        List<Customer> customers = new ArrayList<>();
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Customer customer = new Customer();
+                customer.setCustomerId(rs.getInt("customer_id"));
+                customer.setFullName(rs.getString("full_name"));
+                customer.setEmail(rs.getString("email"));
+                customer.setNic(rs.getString("nic"));
+                customer.setPhone(rs.getString("phone"));
+                customer.setCreatedAt(rs.getTimestamp("created_at")); 
+                customers.add(customer);
+            }
+        }
+        return customers;
     }
 }
