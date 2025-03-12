@@ -53,8 +53,8 @@
                     <li><a id="pricingbutton" href="#">Pricing & Billing</a></li>
                     <li><a id="helpbutton" href="#">Help & Support</a></li>
                     <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Drive with MegaCity</a></li>
+                    <li><a href="driverLogin.jsp">Drive with MegaCity</a></li>
+                    <li><a href="staffLogin.jsp">MegaCity Staff Login</a></li>
 
 
                 </ul>
