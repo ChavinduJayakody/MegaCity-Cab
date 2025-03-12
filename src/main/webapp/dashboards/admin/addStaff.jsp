@@ -28,7 +28,7 @@
                     </li>
 
                     <li>
-                        <a href="adminDashboard.jsp" id="dashboard">
+                        <a href="admin/adminDashboard.jsp" id="dashboard">
                             <span class="icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </span>
@@ -46,11 +46,20 @@
                     </li>
 
                     <li>
-                        <a href="../customers.jsp" id="customers">
+                        <a href="customers.jsp" id="customers">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
                             <span class="title">Customers</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="driver.jsp" id="drivers">
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                            <span class="title">Drivers</span>
                         </a>
                     </li>
 

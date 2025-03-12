@@ -1,4 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.mycompany.megacitycab.dao.CustomerDAO"%>
+<%@page import="com.mycompany.megacitycab.model.Customer"%>
+<%@page import="java.util.List"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,6 +52,15 @@
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
                             <span class="title">Customers</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="driver.jsp" id="drivers">
+                            <span class="icon">
+                                <ion-icon name="people-outline"></ion-icon>
+                            </span>
+                            <span class="title">Drivers</span>
                         </a>
                     </li>
 

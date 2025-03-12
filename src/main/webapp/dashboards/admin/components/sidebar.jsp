@@ -5,7 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!-- =============== Navigation ================ --><div class="container">
+<!-- =============== Navigation ================ -->
+<div class="container">
     <div class="navigation">
         <ul>
             <li>
@@ -41,6 +42,15 @@
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
                     <span class="title">Customers</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="driver.jsp" id="customers">
+                    <span class="icon">
+                        <ion-icon name="vehicle-outline"></ion-icon>
+                    </span>
+                    <span class="title">Drivers</span>
                 </a>
             </li>
 
