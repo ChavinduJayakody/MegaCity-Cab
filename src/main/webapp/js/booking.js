@@ -6,8 +6,8 @@ let dropoffLocation = null;
 
 // Initialize Leaflet Map
 function initMap() {
-    // Set default coordinates (e.g., Melbourne)
-    const defaultLocation = [-37.8136, 144.9631];
+    // Set default coordinates 
+    const defaultLocation = [ 6.85000, 79.95000];
 
     // Initialize the map
     map = L.map('map').setView(defaultLocation, 12);
@@ -173,15 +173,82 @@ document.getElementById("ride-form").addEventListener("submit", function(event) 
 
 // Initialize Flatpickr for date and time picker
 flatpickr("#date-time", {
-    enableTime: true, // Enable time selection
-    dateFormat: "Y-m-d H:i", // Date and time format
-    minDate: "today", // Disable past dates
-    time_24hr: true, // Use 24-hour format
-    defaultDate: new Date(), // Set default date to current date and time
+    enableTime: true, 
+    dateFormat: "Y-m-d H:i", 
+    minDate: "today", 
+    time_24hr: true, 
+    defaultDate: new Date(), 
 });
 
-// Add event listener for the "Use My Current Location" button
+//Use My Current Location
 document.getElementById("current-location-btn").addEventListener("click", getCurrentLocation);
+// Vehicle Type Selection
+const vehicleOptions = document.querySelectorAll(".vehicle-option");
+const seatCountInput = document.getElementById("seat-count");
+const maxSeatsSpan = document.getElementById("max-seats");
 
-// Initialize the map when the page loads
+vehicleOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+        // Remove active class from all options
+        vehicleOptions.forEach((opt) => opt.classList.remove("active"));
+        // Add active class to the selected option
+        option.classList.add("active");
+        // Update the hidden input value
+        document.getElementById("ride-type").value = option.getAttribute("data-value");
+
+        // Update seat count input based on selected vehicle
+        const maxSeats = option.getAttribute("data-seats");
+        seatCountInput.setAttribute("max", maxSeats);
+        maxSeatsSpan.textContent = maxSeats;
+
+        // Reset seat count if it exceeds the new max
+        if (seatCountInput.value > maxSeats) {
+            seatCountInput.value = maxSeats;
+        }
+    });
+});
+
 window.onload = initMap;
+
+function calculateDistance(lat1, lng1, lat2, lng2) {
+    const R = 6371; 
+    const dLat = (lat2 - lat1) * (Math.PI / 180);
+    const dLng = (lng2 - lng1) * (Math.PI / 180);
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c; 
+}
+
+// Fare Calculation Logic
+const baseFareElement = document.getElementById("base-fare");
+const distanceElement = document.getElementById("distance");
+const totalFareElement = document.getElementById("total-fare");
+
+const baseFares = {
+    standard: 500, 
+    luxury: 1000, 
+    suv: 1500, 
+};
+
+const distanceRate = 50; 
+
+function calculateFare(distance) {
+    const rideType = document.getElementById("ride-type").value;
+    const baseFare = baseFares[rideType];
+    const distanceCost = distance * distanceRate;
+    const totalFare = baseFare + distanceCost;
+
+    baseFareElement.textContent = `LKR ${baseFare.toFixed(2)}`;
+    distanceElement.textContent = `${distance.toFixed(2)} km`;
+    totalFareElement.textContent = `LKR ${totalFare.toFixed(2)}`;
+}
+
+document.getElementById("ride-type").addEventListener("change", () => {
+    const distance = 5; 
+    calculateFare(distance);
+});
+
+calculateFare(0); 

@@ -28,7 +28,7 @@
                 <div class="form-box">
                     <form id="ride-form">
                         <div class="form-group">
-                            <label for="pickup">📍 Pickup Location</label>
+                            <label for="pickup"> Pickup Location</label>
                             <input type="text" id="pickup" placeholder="Enter pickup address" required>
                             <button type="button" id="current-location-btn" class="btn-current-location">
                                 <i class="fas fa-location-arrow"></i> Use My Current Location
@@ -36,21 +36,35 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="dropoff">📍 Drop-off Location</label>
+                            <label for="dropoff"> Drop-off Location</label>
                             <input type="text" id="dropoff" placeholder="Enter drop-off address" required>
                         </div>
 
+                        <!-- Vehicle Type Selector -->
+
                         <div class="form-group">
-                            <label for="ride-type">🚖 Ride Type</label>
-                            <select id="ride-type">
-                                <option value="standard">Standard</option>
-                                <option value="luxury">Luxury</option>
-                                <option value="suv">SUV</option>
-                            </select>
+                            <div class="vehicle-type-selector">
+                                <div class="vehicle-option" data-value="standard" data-seats="4">
+                                    <i class="fas fa-car"></i>
+                                    <span>Standard</span>
+                                    <small>Up to 4 seats</small>
+                                </div>
+                                <div class="vehicle-option" data-value="luxury" data-seats="4">
+                                    <i class="fas fa-car-side"></i>
+                                    <span>Luxury</span>
+                                    <small>Up to 4 seats</small>
+                                </div>
+                                <div class="vehicle-option" data-value="suv" data-seats="6">
+                                    <i class="fas fa-truck"></i>
+                                    <span>SUV</span>
+                                    <small>Up to 6 seats</small>
+                                </div>
+                            </div>
+                            <input type="hidden" id="ride-type" name="ride-type" value="standard">
                         </div>
 
                         <div class="form-group">
-                            <label for="date-time">📅 Date & Time</label>
+                            <label for="date-time"> Date & Time</label>
                             <input type="text" id="date-time" placeholder="Select date and time" required>
                         </div>
 
@@ -61,7 +75,19 @@
                 <!-- Map Container -->
                 <div class="map-container">
                     <div id="map"></div>
+
+                    <div class="fare-calculation">
+                        <h3>💰 Fare Estimate</h3>
+                        <div class="fare-details">
+                            <p><strong>Base Fare:</strong> <span id="base-fare">LKR 500.00</span></p>
+                            <p><strong>Distance:</strong> <span id="distance">0 km</span></p>
+                            <p><strong>Total Fare:</strong> <span id="total-fare">LKR 500.00</span></p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Fare Calculation Section -->
+
             </div>
         </div>
 
