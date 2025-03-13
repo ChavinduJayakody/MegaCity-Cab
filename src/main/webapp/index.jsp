@@ -199,7 +199,7 @@
                     <div class="banner-text">
                         <h2>Become a <br>Mega City Cab Driver!</h2>
                         <p>Join our team of professional drivers and start earning today. Enjoy flexible hours, competitive pay, and a supportive community.</p>
-                        <a href="driver-register.jsp" class="btn">Register Now</a>
+                        <a href="driverLogin.jsp" class="btn">Register Now</a>
                     </div>
                     <div class="banner-image">
                         <img src="images/login.jpg" alt="Join Our Team">
