@@ -11,7 +11,7 @@
 
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
         <title>SignIn / SignUp | MegaCity Cab</title>
     </head>
@@ -115,7 +115,28 @@
         <footer class="footer">
             <p>&copy; 2025 MegaCity Cab. All rights reserved.</p>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="js/login.js"></script>
+        <script>
+            // Check for success message
+            <% if (request.getAttribute("success") != null) {%>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '<%= request.getAttribute("success")%>',
+                    confirmButtonText: 'OK'
+                });
+            <% } %>
 
+            // Check for error message
+            <% if (request.getAttribute("error") != null) {%>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: '<%= request.getAttribute("error")%>',
+                    confirmButtonText: 'OK'
+                });
+            <% }%>
+        </script>
     </body>
 </html>

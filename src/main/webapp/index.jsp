@@ -77,7 +77,7 @@
                         <!-- Vehicle 1: Standard Sedan -->
                         <div class="swiper-slide vehicle-card">
                             <div class="vehicle-image">
-                                <img src="images/slide1.jpg" alt="Standard Sedan">
+                                <img src="images/premio.jpg" alt="Standard Sedan">
                             </div>
                             <div class="vehicle-details">
                                 <h3>Standard Sedan</h3>
@@ -93,7 +93,7 @@
                         <!-- Vehicle 2: Luxury SUV -->
                         <div class="swiper-slide vehicle-card">
                             <div class="vehicle-image">
-                                <img src="images/slide2.jpg" alt="Luxury SUV">
+                                <img src="images/suv.png" alt="Luxury SUV">
                             </div>
                             <div class="vehicle-details">
                                 <h3>Luxury SUV</h3>
@@ -110,7 +110,7 @@
                         <!-- Vehicle 3: Minivan -->
                         <div class="swiper-slide vehicle-card">
                             <div class="vehicle-image">
-                                <img src="images/slide3.jpg" alt="Minivan">
+                                <img src="images/kdh.jpg" alt="Minivan">
                             </div>
                             <div class="vehicle-details">
                                 <h3>Minivan</h3>

@@ -31,7 +31,8 @@ public class SignupServlet extends HttpServlet {
         String rePassword = request.getParameter("rePassword");
 
         if (!password.equals(rePassword)) {
-            response.sendRedirect("login.jsp?error=Passwords do not match");
+            request.setAttribute("error", "Passwords do not match");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
 
@@ -45,11 +46,12 @@ public class SignupServlet extends HttpServlet {
         CustomerDAO customerDAO = new CustomerDAO();
         try {
             customerDAO.addCustomer(customer);
-            response.sendRedirect("login.jsp?success=Registration successful! Please login.");
+            request.setAttribute("success", "Registration successful! Please login.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("Database error in SignupServlet: " + e.getMessage()); // Error message
-            response.sendRedirect("login.jsp?error=Database error");
+            request.setAttribute("error", "Database error");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }

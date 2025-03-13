@@ -73,7 +73,6 @@
                         </a>
                     </li>
 
-
                     <li>
                         <a href="addStaff.jsp" id="addStaff">
                             <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
@@ -92,276 +91,196 @@
                 </ul>
             </div>
 
+            <!-- ========================= Main ==================== -->
+            <div class="main">
+                <%@include file="components/header.jsp" %>
 
-        <!-- ========================= Main ==================== -->
-        <div class="main">
-            <%@include file="components/header.jsp" %>
+                <%@include file="components/cards.jsp" %>
 
-            <%@include file="components/cards.jsp" %>
+                <!-- ================ Order Details List ================= -->
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Recent Orders</h2>
+                            <a href="#" class="btn">View All</a>
+                        </div>
 
-            <!-- ================ Order Details List ================= -->
-            <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader">
-                        <h2>Recent Orders</h2>
-                        <a href="#" class="btn">View All</a>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Price</td>
+                                    <td>Payment</td>
+                                    <td>Status</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Star Refrigerator</td>
+                                    <td>$1200</td>
+                                    <td>Paid</td>
+                                    <td><span class="status delivered">Delivered</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Dell Laptop</td>
+                                    <td>$110</td>
+                                    <td>Due</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Apple Watch</td>
+                                    <td>$1200</td>
+                                    <td>Paid</td>
+                                    <td><span class="status return">Return</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Addidas Shoes</td>
+                                    <td>$620</td>
+                                    <td>Due</td>
+                                    <td><span class="status inProgress">In Progress</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Star Refrigerator</td>
+                                    <td>$1200</td>
+                                    <td>Paid</td>
+                                    <td><span class="status delivered">Delivered</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Dell Laptop</td>
+                                    <td>$110</td>
+                                    <td>Due</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Apple Watch</td>
+                                    <td>$1200</td>
+                                    <td>Paid</td>
+                                    <td><span class="status return">Return</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Addidas Shoes</td>
+                                    <td>$620</td>
+                                    <td>Due</td>
+                                    <td><span class="status inProgress">In Progress</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
-                            </tr>
-                        </thead>
+                    <!-- ================= New Customers ================ -->
+                    <div class="recentCustomers">
+                        <div class="cardHeader">
+                            <h2>Recent Customers</h2>
+                        </div>
 
-                        <tbody>
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
+                        <table>
+                            <%                            CustomerDAO customerDAO1 = new CustomerDAO();
+                                List<Customer> recentCustomers = customerDAO1.getAllCustomers();
+                                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+                                for (Customer customer : recentCustomers) {
+                            %>
                             <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
+                                <td width="60px">
+                                    <div class="imgBx"><img src="components/user.png" alt=""></div>
+                                </td>
+                                <td>
+                                    <h4><%= customer.getFullName()%> <br> <span><%= dateFormat.format(customer.getCreatedAt())%></span></h4>
+                                </td>
                             </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- ================= New Customers ================ -->
-                <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2>Recent Customers</h2>
+                            <%
+                                }
+                            %>
+                        </table>
                     </div>
-
-                    <table>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-                    </table>
                 </div>
             </div>
-        </div>
 
-        <!-- =========== Scripts =========  -->
-        <script>
-            // add hovered class to selected list item
-            let list = document.querySelectorAll(".navigation li");
+            <!-- =========== Scripts =========  -->
+            <script>
+                // add hovered class to selected list item
+                let list = document.querySelectorAll(".navigation li");
 
-            function activeLink() {
-                list.forEach((item) => {
-                    item.classList.remove("hovered");
-                });
-                this.classList.add("hovered");
-            }
-
-            list.forEach((item) => item.addEventListener("mouseover", activeLink));
-
-            // Menu Toggle
-            let toggle = document.querySelector(".toggle");
-            let navigation = document.querySelector(".navigation");
-            let main = document.querySelector(".main");
-
-            toggle.onclick = function () {
-                navigation.classList.toggle("active");
-                main.classList.toggle("active");
-            };
-
-document.addEventListener('DOMContentLoaded', function () {
-    const sidebarItems = document.querySelectorAll('.navigation ul li a');
-
-    function setActiveItem(activeItem) {
-        sidebarItems.forEach(item => {
-            item.classList.remove('active');
-        });
-        activeItem.classList.add('active');
-    }
-
-    // Add click event listeners to sidebar items
-    sidebarItems.forEach(item => {
-        item.addEventListener('click', function (event) {
-            // Only prevent default behavior for items with data-page attribute
-            if (this.getAttribute('data-page')) {
-                event.preventDefault();
-                setActiveItem(this);
-            }
-            // Allow default behavior for other links (e.g., href to addStaff.jsp)
-        });
-    });
-
-    // Set default active item
-    const defaultActiveItem = document.querySelector('.navigation ul li a[data-page="dashboard"]');
-    if (defaultActiveItem) {
-        setActiveItem(defaultActiveItem);
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const sidebarItems = document.querySelectorAll('.navigation ul li a');
-
-    function setActiveItem(activeItem) {
-        sidebarItems.forEach(item => {
-            item.classList.remove('active');
-        });
-        activeItem.classList.add('active');
-    }
-
-    sidebarItems.forEach(item => {
-        item.addEventListener('click', function (event) {
-            if (this.getAttribute('data-page')) {
-                event.preventDefault();
-                setActiveItem(this);
-            }
-        });
-    });
-
-    const defaultActiveItem = document.querySelector('.navigation ul li a[data-page="dashboard"]');
-    if (defaultActiveItem) {
-        setActiveItem(defaultActiveItem);
-    }
-});
-
-        document.getElementById("signoutBtn").addEventListener("click", function (event) {
-            event.preventDefault();
-
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You will be logged out of your session!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, log me out!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "components/processSignout.jsp";
+                function activeLink() {
+                    list.forEach((item) => {
+                        item.classList.remove("hovered");
+                    });
+                    this.classList.add("hovered");
                 }
-            });
-        });
-        </script>
 
-        <!-- ====== ionicons ======= -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                list.forEach((item) => item.addEventListener("mouseover", activeLink));
 
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+                // Menu Toggle
+                let toggle = document.querySelector(".toggle");
+                let navigation = document.querySelector(".navigation");
+                let main = document.querySelector(".main");
+
+                toggle.onclick = function () {
+                    navigation.classList.toggle("active");
+                    main.classList.toggle("active");
+                };
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    const sidebarItems = document.querySelectorAll('.navigation ul li a');
+
+                    function setActiveItem(activeItem) {
+                        sidebarItems.forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        activeItem.classList.add('active');
+                    }
+
+                    // Add click event listeners to sidebar items
+                    sidebarItems.forEach(item => {
+                        item.addEventListener('click', function (event) {
+                            // Only prevent default behavior for items with data-page attribute
+                            if (this.getAttribute('data-page')) {
+                                event.preventDefault();
+                                setActiveItem(this);
+                            }
+                            // Allow default behavior for other links (e.g., href to addStaff.jsp)
+                        });
+                    });
+
+                    // Set default active item
+                    const defaultActiveItem = document.querySelector('.navigation ul li a[data-page="dashboard"]');
+                    if (defaultActiveItem) {
+                        setActiveItem(defaultActiveItem);
+                    }
+                });
+
+                document.getElementById("signoutBtn").addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You will be logged out of your session!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, log me out!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "components/processSignout.jsp";
+                        }
+                    });
+                });
+            </script>
+
+            <!-- ====== ionicons ======= -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
 
 </html>

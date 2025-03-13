@@ -33,14 +33,16 @@ public class LoginServlet extends HttpServlet {
             if (customer != null && customer.getPassword().equals(password)) {
                 HttpSession session = request.getSession();
                 session.setAttribute("customer", customer);
-                response.sendRedirect("index.jsp");
+                request.setAttribute("success", "Login successful!");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
-                response.sendRedirect("login.jsp?error=Invalid email or password");
+                request.setAttribute("error", "Invalid email or password");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.err.println("Database error in LoginServlet: " + e.getMessage()); // Error message
-            response.sendRedirect("login.jsp?error=Database error");
+            request.setAttribute("error", "Database error");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }
