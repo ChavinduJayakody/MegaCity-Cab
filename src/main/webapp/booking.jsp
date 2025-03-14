@@ -1,5 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%
+    String error = request.getParameter("error");
+    if (error != null && error.equals("1")) {
+%>
+<div class="error-message">
+    <p>⚠️ An error occurred while processing your booking. Please try again.</p>
+</div>
+<%
+    }
+%><!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -26,10 +35,10 @@
             <div class="booking-content">
                 <!-- Booking Form -->
                 <div class="form-box">
-                    <form id="ride-form">
+                    <form action="${pageContext.request.contextPath}/bookride" id="ride-form" method="POST">
                         <div class="form-group">
                             <label for="pickup"> Pickup Location</label>
-                            <input type="text" id="pickup" placeholder="Enter pickup address" required>
+                            <input type="text" id="pickup" name="pickup" placeholder="Enter pickup address" required>
                             <button type="button" id="current-location-btn" class="btn-current-location">
                                 <i class="fas fa-location-arrow"></i> Use My Current Location
                             </button>
@@ -37,10 +46,8 @@
 
                         <div class="form-group">
                             <label for="dropoff"> Drop-off Location</label>
-                            <input type="text" id="dropoff" placeholder="Enter drop-off address" required>
+                            <input type="text" id="dropoff" name="dropoff" placeholder="Enter drop-off address" required>
                         </div>
-
-                        <!-- Vehicle Type Selector -->
 
                         <div class="form-group">
                             <div class="vehicle-type-selector">
@@ -55,20 +62,25 @@
                                     <small>Up to 4 seats</small>
                                 </div>
                                 <div class="vehicle-option" data-value="suv" data-seats="6">
-                                    <i class="fas fa-truck"></i>
+                                    <i class="fas fa-car"></i>
                                     <span>SUV</span>
                                     <small>Up to 6 seats</small>
                                 </div>
                             </div>
-                            <input type="hidden" id="ride-type" name="ride-type" value="standard">
                         </div>
 
                         <div class="form-group">
                             <label for="date-time"> Date & Time</label>
-                            <input type="text" id="date-time" placeholder="Select date and time" required>
+                            <input type="text" id="date-time" name="date-time" placeholder="Select date and time" required>
                         </div>
+                        <input type="hidden" id="ride-type" name="ride-type" value="standard">
+                        <input type="hidden" id="total-fare" name="fare" value="500.00">
+                        <input type="hidden" id="distance" name="distance" value="0">
 
-                        <button type="submit" class="btn-submit">Confirm Booking</button>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn-submit">Confirm Booking</button>
+                            <button type="button" id="reset-form-btn" class="btn-submit btn-reset">Reset Form</button>
+                        </div>
                     </form>
                 </div>
 
@@ -80,21 +92,23 @@
                         <h3>💰 Fare Estimate</h3>
                         <div class="fare-details">
                             <p><strong>Base Fare:</strong> <span id="base-fare">LKR 500.00</span></p>
-                            <p><strong>Distance:</strong> <span id="distance">0 km</span></p>
+                            <p><strong>Distance:</strong> <span id="distance">0.00 km</span></p>
                             <p><strong>Total Fare:</strong> <span id="total-fare">LKR 500.00</span></p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Fare Calculation Section -->
-
             </div>
         </div>
+
+        <%@include file="components/footer.jsp" %>>
 
         <!-- Leaflet JavaScript -->
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <!-- Custom JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <script src="js/booking.js"></script>
         <script src="js/script.js"></script>
 

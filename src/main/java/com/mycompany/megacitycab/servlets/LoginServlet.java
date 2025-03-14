@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
             if (customer != null && customer.getPassword().equals(password)) {
                 HttpSession session = request.getSession();
                 session.setAttribute("customer", customer);
+                session.setAttribute("customerId", customer.getCustomerId());
                 request.setAttribute("success", "Login successful!");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
