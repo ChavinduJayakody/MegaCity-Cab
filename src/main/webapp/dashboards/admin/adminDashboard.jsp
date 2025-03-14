@@ -108,68 +108,47 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Name</td>
-                                    <td>Price</td>
-                                    <td>Payment</td>
+                                    <td>Pickup Location</td>
+                                    <td>Drop off Location</td>
+                                    <td>Customer Name</td>
+                                    <td>Date & Time</td>
+                                    <td>Fare</td>
+                                    <td>Distance</td>
                                     <td>Status</td>
+
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <tr>
-                                    <td>Star Refrigerator</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
+                                    <td>Colombo Fort Railway Station, Colombo, Sri Lanka</td>
+                                    <td>Galle Face Green, Colombo, Sri Lanka</td>
+                                    <td>Chavindu Jayakody</td>
+                                    <td>2023-10-15 08:30</td>
+                                    <td>500.00</td>
+                                    <td>3.5</td>
+                                    <td>Completed</td>
+                                    <td><span class="status delivered">Completed</span></td>
                                 </tr>
-
                                 <tr>
-                                    <td>Dell Laptop</td>
-                                    <td>$110</td>
-                                    <td>Due</td>
+                                    <td>Mount Lavinia Hotel, Mount Lavinia, Sri Lanka</td>
+                                    <td>Bandaranaike International Airport, Katunayake, Sri Lanka</td>
+                                    <td>Nisal Perera</td>
+                                    <td>2023-10-16 14:00</td>
+                                    <td>2500.00</td>
+                                    <td>35.0</td>
+                                    <td>Completed</td>
+                                    <td><span class="status delivered">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Temple of the Tooth Relic, Kandy, Sri Lanka</td>
+                                    <td>Sigiriya Rock Fortress, Sigiriya, Sri Lanka</td>
+                                    <td>Kamal Silva</td>
+                                    <td>2023-10-17 10:15</td>
+                                    <td>3000.00</td>
+                                    <td>90.0</td>
+                                    <td>Pending</td>
                                     <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Apple Watch</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status return">Return</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Addidas Shoes</td>
-                                    <td>$620</td>
-                                    <td>Due</td>
-                                    <td><span class="status inProgress">In Progress</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Star Refrigerator</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Dell Laptop</td>
-                                    <td>$110</td>
-                                    <td>Due</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Apple Watch</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status return">Return</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Addidas Shoes</td>
-                                    <td>$620</td>
-                                    <td>Due</td>
-                                    <td><span class="status inProgress">In Progress</span></td>
                                 </tr>
                             </tbody>
                         </table>
