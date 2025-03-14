@@ -1,3 +1,4 @@
+// Initialize map and markers
 let map;
 let pickupMarker;
 let dropoffMarker;
@@ -6,8 +7,8 @@ let dropoffLocation = null;
 
 // Initialize Leaflet Map
 function initMap() {
-    // Set default coordinates 
-    const defaultLocation = [ 6.85000, 79.95000];
+    // Set default coordinates (e.g., Colombo, Sri Lanka)
+    const defaultLocation = [6.9271, 79.8612];
 
     // Initialize the map
     map = L.map('map').setView(defaultLocation, 12);
@@ -119,6 +120,11 @@ function setPickupLocation(location, address) {
         }),
     }).addTo(map);
     document.getElementById("pickup").value = address; // Display the address
+
+    if (dropoffLocation) {
+        const distance = calculateDistance(pickupLocation.lat, pickupLocation.lng, dropoffLocation.lat, dropoffLocation.lng);
+        calculateFare(distance);
+    }
 }
 
 // Set drop-off location
@@ -135,58 +141,27 @@ function setDropoffLocation(location, address) {
         }),
     }).addTo(map);
     document.getElementById("dropoff").value = address; // Display the address
-}
 
-// Handle form submission
-document.getElementById("ride-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const pickupAddress = document.getElementById("pickup").value;
-    const dropoffAddress = document.getElementById("dropoff").value;
-
-    if (!pickupAddress || !dropoffAddress) {
-        alert("Please enter both pickup and drop-off addresses.");
-        return;
+    if (pickupLocation) {
+        const distance = calculateDistance(pickupLocation.lat, pickupLocation.lng, dropoffLocation.lat, dropoffLocation.lng);
+        calculateFare(distance);
     }
-
-    // Geocode pickup address
-    geocodeAddress(pickupAddress, (pickupLocation) => {
-        // Reverse geocode to get the full address
-        reverseGeocode(pickupLocation, (pickupAddressFull) => {
-            setPickupLocation(pickupLocation, pickupAddressFull);
-
-            // Geocode drop-off address
-            geocodeAddress(dropoffAddress, (dropoffLocation) => {
-                // Reverse geocode to get the full address
-                reverseGeocode(dropoffLocation, (dropoffAddressFull) => {
-                    setDropoffLocation(dropoffLocation, dropoffAddressFull);
-
-                    const rideType = document.getElementById("ride-type").value;
-                    const dateTime = document.getElementById("date-time").value;
-
-                    alert(`🚖 Ride Confirmed!\n\nPickup: ${pickupAddressFull}\nDrop-off: ${dropoffAddressFull}\nRide Type: ${rideType}\nDate & Time: ${dateTime}`);
-                });
-            });
-        });
-    });
-});
+}
 
 // Initialize Flatpickr for date and time picker
 flatpickr("#date-time", {
-    enableTime: true, 
-    dateFormat: "Y-m-d H:i", 
-    minDate: "today", 
-    time_24hr: true, 
-    defaultDate: new Date(), 
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today",
+    time_24hr: true,
+    defaultDate: new Date(),
 });
 
-//Use My Current Location
+// Use My Current Location
 document.getElementById("current-location-btn").addEventListener("click", getCurrentLocation);
+
 // Vehicle Type Selection
 const vehicleOptions = document.querySelectorAll(".vehicle-option");
-const seatCountInput = document.getElementById("seat-count");
-const maxSeatsSpan = document.getElementById("max-seats");
-
 vehicleOptions.forEach((option) => {
     option.addEventListener("click", () => {
         // Remove active class from all options
@@ -196,22 +171,17 @@ vehicleOptions.forEach((option) => {
         // Update the hidden input value
         document.getElementById("ride-type").value = option.getAttribute("data-value");
 
-        // Update seat count input based on selected vehicle
-        const maxSeats = option.getAttribute("data-seats");
-        seatCountInput.setAttribute("max", maxSeats);
-        maxSeatsSpan.textContent = maxSeats;
-
-        // Reset seat count if it exceeds the new max
-        if (seatCountInput.value > maxSeats) {
-            seatCountInput.value = maxSeats;
+        // Update fare calculation if locations are set
+        if (pickupLocation && dropoffLocation) {
+            const distance = calculateDistance(pickupLocation.lat, pickupLocation.lng, dropoffLocation.lat, dropoffLocation.lng);
+            calculateFare(distance);
         }
     });
 });
 
-window.onload = initMap;
-
+// Function to calculate distance between two coordinates using Haversine formula
 function calculateDistance(lat1, lng1, lat2, lng2) {
-    const R = 6371; 
+    const R = 6371; // Radius of the Earth in kilometers
     const dLat = (lat2 - lat1) * (Math.PI / 180);
     const dLng = (lng2 - lng1) * (Math.PI / 180);
     const a =
@@ -219,8 +189,11 @@ function calculateDistance(lat1, lng1, lat2, lng2) {
         Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
         Math.sin(dLng / 2) * Math.sin(dLng / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c; 
+    return R * c; // Distance in kilometers
 }
+
+
+
 
 // Fare Calculation Logic
 const baseFareElement = document.getElementById("base-fare");
@@ -228,12 +201,12 @@ const distanceElement = document.getElementById("distance");
 const totalFareElement = document.getElementById("total-fare");
 
 const baseFares = {
-    standard: 500, 
-    luxury: 1000, 
-    suv: 1500, 
+    standard: 500,
+    luxury: 1000,
+    suv: 1500,
 };
 
-const distanceRate = 50; 
+const distanceRate = 50; // Cost per kilometer
 
 function calculateFare(distance) {
     const rideType = document.getElementById("ride-type").value;
@@ -241,14 +214,118 @@ function calculateFare(distance) {
     const distanceCost = distance * distanceRate;
     const totalFare = baseFare + distanceCost;
 
+    // Update fare display in the UI
     baseFareElement.textContent = `LKR ${baseFare.toFixed(2)}`;
     distanceElement.textContent = `${distance.toFixed(2)} km`;
     totalFareElement.textContent = `LKR ${totalFare.toFixed(2)}`;
-}
 
-document.getElementById("ride-type").addEventListener("change", () => {
-    const distance = 5; 
-    calculateFare(distance);
+    // Update hidden input fields for form submission
+    document.getElementById("total-fare").value = totalFare.toFixed(2);
+    document.getElementById("distance").value = distance.toFixed(2);
+
+    console.log("Updated fare display and hidden fields.");
+}
+// Initialize fare calculation with zero distance
+calculateFare(0);
+
+// Reset Form Functionality
+document.getElementById("reset-form-btn").addEventListener("click", function () {
+    resetForm();
 });
 
-calculateFare(0); 
+function resetForm() {
+    // Reset input fields
+    document.getElementById("ride-form").reset();
+
+    pickupLocation = null;
+    dropoffLocation = null;
+
+    if (pickupMarker) {
+        map.removeLayer(pickupMarker);
+        pickupMarker = null;
+    }
+    if (dropoffMarker) {
+        map.removeLayer(dropoffMarker);
+        dropoffMarker = null;
+    }
+
+    calculateFare(0);
+
+    // Reset vehicle type selection
+    const vehicleOptions = document.querySelectorAll(".vehicle-option");
+    vehicleOptions.forEach((option) => option.classList.remove("active"));
+    document.querySelector(".vehicle-option[data-value='standard']").classList.add("active");
+    document.getElementById("ride-type").value = "standard";
+
+    // Reset Flatpickr date-time input
+    flatpickr("#date-time", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        minDate: "today",
+        time_24hr: true,
+        defaultDate: new Date(),
+    });
+}
+
+// Handle form submission
+document.getElementById("ride-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const pickupAddress = document.getElementById("pickup").value;
+    const dropoffAddress = document.getElementById("dropoff").value;
+
+    if (!pickupAddress || !dropoffAddress) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please enter both pickup and drop-off addresses.",
+        });
+        return;
+    }
+
+    // Get form data
+    const formData = new FormData(this);
+
+    // Debug form data
+    for (let [key, value] of formData.entries()) {
+        console.log(key, value); 
+        // Debug log
+    }
+
+    fetch("/MegaCityCab/bookRide", {
+        method: "POST",
+        body: formData,
+        credentials: "include", 
+    })
+        .then((response) => response.text()) // Parse the response as plain text
+        .then((data) => {
+            const [status, message] = data.split(":"); message
+            if (status === "success") {
+                Swal.fire({
+                    icon: "success",
+                    title: "Booking Successful!",
+                    text: message,
+                }).then(() => {
+                    // Reset the form after successful booking
+                    resetForm();
+                });
+            } else if (status === "error") {
+                Swal.fire({
+                    icon: "error",
+                    title: "Booking Failed",
+                    text: message,
+                });
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong. Please try again.",
+            });
+        });
+});
+
+// Initialize the map when the page loads
+window.onload = initMap;
