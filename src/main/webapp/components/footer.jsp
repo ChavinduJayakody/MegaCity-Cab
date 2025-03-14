@@ -43,14 +43,12 @@
                     <li><a id="homebutton" href="index.jsp">Home</a></li>
                     <li><a id="bookingbutton" href="booking.jsp">Book a Ride</a></li>
                     <li><a id="mybookingsbutton" href="#">My Bookings</a></li>
-                    <li><a id="driverscarsbutton" href="#">Drivers & Cars</a></li>
 
                 </ul>
             </div>
             <div class="footer-other-links">
                 <h3>Other Links</h3>
                 <ul>
-                    <li><a id="pricingbutton" href="#">Pricing & Billing</a></li>
                     <li><a id="helpbutton" href="#">Help & Support</a></li>
                     <li><a href="#">Terms & Conditions</a></li>
                     <li><a href="driverLogin.jsp">Drive with MegaCity</a></li>

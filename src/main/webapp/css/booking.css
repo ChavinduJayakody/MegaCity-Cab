@@ -7,6 +7,8 @@
 
 .vehicle-option {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     padding: 15px;
     border: 2px solid #ddd;
@@ -101,11 +103,13 @@ body {
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 10px;
+        color: #fff;
+
 }
 
 .sub-heading {
     font-size: 18px;
-    color: #555;
+    color: #fff;
 }
 
 /* Booking Content */
@@ -261,6 +265,22 @@ select:focus {
     font-size: 18px;
     font-weight: 700;
     color: #28a745; 
+}
+
+/* Form Buttons Container */
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Reset Form Button */
+.btn-reset {
+    background: #dc3545; 
+}
+
+.btn-reset:hover {
+    background: #c82333; 
 }
 
 /* Responsive Design */

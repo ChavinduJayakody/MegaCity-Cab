@@ -7,8 +7,7 @@
         <a id="homebutton" href="index.jsp">Home</a>
         <a id="bookingbutton" href="booking.jsp">Book a Ride</a>
         <a id="mybookingsbutton" href="#">My Bookings</a>
-        <a id="driverscarsbutton" href="#">Drivers & Cars</a>
-        <a id="pricingbutton" href="#">Pricing & Billing</a>
+        <a id="aboutbutton" href="about.jsp">contact</a>
         <a id="helpbutton" href="#">Help & Support</a>
     </nav>
 
