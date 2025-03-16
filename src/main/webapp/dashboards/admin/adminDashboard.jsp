@@ -3,6 +3,14 @@
 <%@page import="com.mycompany.megacitycab.model.Customer"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.mycompany.megacitycab.dao.BookingDAO" %>
+<%@page import="com.mycompany.megacitycab.model.Booking" %>
+
+<%
+    // Fetch data from the database
+    BookingDAO bookingDAO = new BookingDAO();
+    List<Booking> bookings = bookingDAO.getAllBookings();
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -115,41 +123,25 @@
                                     <td>Fare</td>
                                     <td>Distance</td>
                                     <td>Status</td>
-
                                 </tr>
                             </thead>
 
                             <tbody>
+                                <%                                // Iterate over the list of bookings
+                                    for (Booking booking : bookings) {
+                                %>
                                 <tr>
-                                    <td>Colombo Fort Railway Station, Colombo, Sri Lanka</td>
-                                    <td>Galle Face Green, Colombo, Sri Lanka</td>
-                                    <td>Chavindu Jayakody</td>
-                                    <td>2023-10-15 08:30</td>
-                                    <td>500.00</td>
-                                    <td>3.5</td>
-                                    <td>Completed</td>
+                                    <td><%= booking.getPickupLocation()%></td>
+                                    <td><%= booking.getDropoffLocation()%></td>
+                                    <td></td> <!-- Replace with actual customer name if available -->
+                                    <td><%= booking.getDateTime()%></td>
+                                    <td><%= booking.getFare()%></td>
+                                    <td><%= booking.getDistance()%></td>
                                     <td><span class="status delivered">Completed</span></td>
                                 </tr>
-                                <tr>
-                                    <td>Mount Lavinia Hotel, Mount Lavinia, Sri Lanka</td>
-                                    <td>Bandaranaike International Airport, Katunayake, Sri Lanka</td>
-                                    <td>Nisal Perera</td>
-                                    <td>2023-10-16 14:00</td>
-                                    <td>2500.00</td>
-                                    <td>35.0</td>
-                                    <td>Completed</td>
-                                    <td><span class="status delivered">Completed</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Temple of the Tooth Relic, Kandy, Sri Lanka</td>
-                                    <td>Sigiriya Rock Fortress, Sigiriya, Sri Lanka</td>
-                                    <td>Kamal Silva</td>
-                                    <td>2023-10-17 10:15</td>
-                                    <td>3000.00</td>
-                                    <td>90.0</td>
-                                    <td>Pending</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
+                                <%
+                                    }
+                                %>
                             </tbody>
                         </table>
                     </div>

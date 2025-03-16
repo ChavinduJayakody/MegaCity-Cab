@@ -9,12 +9,11 @@
                         <ion-icon name="car"></ion-icon>
                     </span>
                     <h2 class="title">Mega City Cab</h2>
-
                 </a>
             </li>
 
             <li>
-                <a href="#" data-page="dashboard">
+                <a href="staffDashboard.jsp" id="dashboard" class="active">
                     <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
                     </span>
@@ -23,7 +22,16 @@
             </li>
 
             <li>
-                <a href="#" data-page="customers">
+                <a href="bookings.jsp" id="bookings">
+                    <span class="icon">
+                        <ion-icon name="ticket-outline"></ion-icon>
+                    </span>
+                    <span class="title">Bookings</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="customers.jsp" id="customers">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
@@ -32,43 +40,25 @@
             </li>
 
             <li>
-                <a href="#" data-page="messages">
+                <a href="drivers.jsp" id="drivers">
                     <span class="icon">
-                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="people-outline"></ion-icon>
                     </span>
-                    <span class="title">Messages</span>
+                    <span class="title">Drivers</span>
                 </a>
             </li>
 
             <li>
-                <a href="#" data-page="help">
+                <a href="inquiries.jsp" id="inquiries">
                     <span class="icon">
                         <ion-icon name="help-outline"></ion-icon>
                     </span>
-                    <span class="title">Help</span>
+                    <span class="title">Inquiries</span>
                 </a>
             </li>
 
             <li>
-                <a href="#" data-page="settings">
-                    <span class="icon">
-                        <ion-icon name="settings-outline"></ion-icon>
-                    </span>
-                    <span class="title">Settings</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#" data-page="messages">
-                    <span class="icon">
-                        <ion-icon name="lock-closed-outline"></ion-icon>
-                    </span>
-                    <span class="title">Add Staff</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="components/signout.jsp" id="signoutBtn">
+                <a href="#" id="signoutBtn">
                     <span class="icon">
                         <ion-icon name="log-out-outline"></ion-icon>
                     </span>

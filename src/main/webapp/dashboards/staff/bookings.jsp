@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : booking
     Created on : Mar 14, 2025, 11:19:47 PM
     Author     : Chavindu Jayakody
@@ -28,7 +28,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Driver Dashboard | MegaCity Cab </title>
         <!-- ======= Styles ====== -->
-        <link rel="stylesheet" href="adminDashboard.css">
+        <link rel="stylesheet" href="staffDashboard.css">
     </head>
 
     <body>
@@ -128,7 +128,7 @@
                             <tr>
                                 <td><%= booking.getPickupLocation()%></td>
                                 <td><%= booking.getDropoffLocation()%></td>
-                                <td></td> <!-- Replace with actual customer name if available -->
+                                <td>Customer Name Placeholder</td> <!-- Replace with actual customer name if available -->
                                 <td><%= booking.getDateTime()%></td>
                                 <td><%= booking.getFare()%></td>
                                 <td><%= booking.getDistance()%></td>

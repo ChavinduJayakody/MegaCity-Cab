@@ -55,8 +55,8 @@
                     <input type="submit" class="form__button" value="Login">
 
                     <div class="form__social">
-                        <span class="form__social-text">Our Sign In with</span>
-                        <button type="submit" class="form__button google" >Sign Up With<i class='fa-brands fa-google form__social-icon' ></i></button>
+                        <!--                        <span class="form__social-text">Our Sign In with</span>
+                                                <button type="submit" class="form__button google" >Sign Up With<i class='fa-brands fa-google form__social-icon' ></i></button>-->
                         <span >Don't have an account? <a href="#" id="showSignup"class="switch">Sign Up Now</a></span>
 
                     </div>

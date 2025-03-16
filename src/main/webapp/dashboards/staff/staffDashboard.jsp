@@ -3,6 +3,14 @@
 <%@page import="com.mycompany.megacitycab.model.Customer"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.mycompany.megacitycab.dao.BookingDAO" %>
+<%@page import="com.mycompany.megacitycab.model.Booking" %>
+
+<%
+    // Fetch data from the database
+    BookingDAO bookingDAO = new BookingDAO();
+    List<Booking> bookings = bookingDAO.getAllBookings();
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +18,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Staff Dashboard | MegaCity Cab </title>
+        <title> Admin Dashboard | MegaCity Cab </title>
         <!-- ======= Styles ====== -->
         <link rel="stylesheet" href="staffDashboard.css">
     </head>
@@ -84,7 +92,6 @@
                 </ul>
             </div>
 
-
             <!-- ========================= Main ==================== -->
             <div class="main">
                 <%@include file="components/header.jsp" %>
@@ -102,69 +109,32 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Name</td>
-                                    <td>Price</td>
-                                    <td>Payment</td>
+                                    <td>Pickup Location</td>
+                                    <td>Drop off Location</td>
+                                    <td>Customer Name</td>
+                                    <td>Date & Time</td>
+                                    <td>Fare</td>
+                                    <td>Distance</td>
                                     <td>Status</td>
                                 </tr>
                             </thead>
 
                             <tbody>
+                                <%                                // Iterate over the list of bookings
+                                    for (Booking booking : bookings) {
+                                %>
                                 <tr>
-                                    <td>Star Refrigerator</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
+                                    <td><%= booking.getPickupLocation()%></td>
+                                    <td><%= booking.getDropoffLocation()%></td>
+                                    <td></td> <!-- Replace with actual customer name if available -->
+                                    <td><%= booking.getDateTime()%></td>
+                                    <td><%= booking.getFare()%></td>
+                                    <td><%= booking.getDistance()%></td>
+                                    <td><span class="status delivered">Completed</span></td>
                                 </tr>
-
-                                <tr>
-                                    <td>Dell Laptop</td>
-                                    <td>$110</td>
-                                    <td>Due</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Apple Watch</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status return">Return</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Addidas Shoes</td>
-                                    <td>$620</td>
-                                    <td>Due</td>
-                                    <td><span class="status inProgress">In Progress</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Star Refrigerator</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Dell Laptop</td>
-                                    <td>$110</td>
-                                    <td>Due</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Apple Watch</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status return">Return</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Addidas Shoes</td>
-                                    <td>$620</td>
-                                    <td>Due</td>
-                                    <td><span class="status inProgress">In Progress</span></td>
-                                </tr>
+                                <%
+                                    }
+                                %>
                             </tbody>
                         </table>
                     </div>
@@ -176,77 +146,23 @@
                         </div>
 
                         <table>
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>David <br> <span>Italy</span></h4>
-                                </td>
-                            </tr>
+                            <%                            CustomerDAO customerDAO1 = new CustomerDAO();
+                                List<Customer> recentCustomers = customerDAO1.getAllCustomers();
+                                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+                                for (Customer customer : recentCustomers) {
+                            %>
                             <tr>
                                 <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                                    <div class="imgBx"><img src="components/user.png" alt=""></div>
                                 </td>
                                 <td>
-                                    <h4>Amit <br> <span>India</span></h4>
+                                    <h4><%= customer.getFullName()%> <br> <span><%= dateFormat.format(customer.getCreatedAt())%></span></h4>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>David <br> <span>Italy</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>Amit <br> <span>India</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>David <br> <span>Italy</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>Amit <br> <span>India</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>David <br> <span>Italy</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>Amit <br> <span>India</span></h4>
-                                </td>
-                            </tr>
+                            <%
+                                }
+                            %>
                         </table>
                     </div>
                 </div>
@@ -299,31 +215,6 @@
                     });
 
                     // Set default active item
-                    const defaultActiveItem = document.querySelector('.navigation ul li a[data-page="dashboard"]');
-                    if (defaultActiveItem) {
-                        setActiveItem(defaultActiveItem);
-                    }
-                });
-
-                document.addEventListener('DOMContentLoaded', function () {
-                    const sidebarItems = document.querySelectorAll('.navigation ul li a');
-
-                    function setActiveItem(activeItem) {
-                        sidebarItems.forEach(item => {
-                            item.classList.remove('active');
-                        });
-                        activeItem.classList.add('active');
-                    }
-
-                    sidebarItems.forEach(item => {
-                        item.addEventListener('click', function (event) {
-                            if (this.getAttribute('data-page')) {
-                                event.preventDefault();
-                                setActiveItem(this);
-                            }
-                        });
-                    });
-
                     const defaultActiveItem = document.querySelector('.navigation ul li a[data-page="dashboard"]');
                     if (defaultActiveItem) {
                         setActiveItem(defaultActiveItem);

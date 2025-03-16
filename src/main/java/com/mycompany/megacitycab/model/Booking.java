@@ -1,44 +1,24 @@
 package com.mycompany.megacitycab.model;
 
-import java.sql.Timestamp;
-
 public class Booking {
-    private int bookingId;
-    private int customerId;
-    private Integer driverId; // Can be null initially
     private String pickupLocation;
     private String dropoffLocation;
-    private String rideType;
-    private Timestamp dateTime;
-    private String status;
-    private double fare;
     private double distance;
+    private String rideType;
+    private String dateTime;
+    private double fare;
+
+    // Constructor
+    public Booking(String pickupLocation, String dropoffLocation, double distance, String rideType, String dateTime, double fare) {
+        this.pickupLocation = pickupLocation;
+        this.dropoffLocation = dropoffLocation;
+        this.distance = distance;
+        this.rideType = rideType;
+        this.dateTime = dateTime;
+        this.fare = fare;
+    }
 
     // Getters and Setters
-    public int getBookingId() {
-        return bookingId;
-    }
-
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-
-    public Integer getDriverId() {
-        return driverId;
-    }
-
-    public void setDriverId(Integer driverId) {
-        this.driverId = driverId;
-    }
-
     public String getPickupLocation() {
         return pickupLocation;
     }
@@ -55,6 +35,14 @@ public class Booking {
         this.dropoffLocation = dropoffLocation;
     }
 
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
     public String getRideType() {
         return rideType;
     }
@@ -63,20 +51,12 @@ public class Booking {
         this.rideType = rideType;
     }
 
-    public Timestamp getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Timestamp dateTime) {
+    public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public double getFare() {
@@ -85,13 +65,5 @@ public class Booking {
 
     public void setFare(double fare) {
         this.fare = fare;
-    }
-
-    public double getDistance() {
-        return distance;
-    }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
     }
 }
